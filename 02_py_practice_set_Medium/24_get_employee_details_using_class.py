@@ -16,18 +16,21 @@ Created on Thu Jun 27 20:54:56 2024
 # =============================================================================
 
 class Employee:
+    def __init__(self,first_name,last_name):
+        self.first_name=first_name
+        self.last_name=last_name
     
-    def fullname(self,first_name,last_name):
-        return f'{first_name.title()} {last_name.title()}'
+    def fullname(self):
+        return f'{self.first_name.title()} {self.last_name.title()}'
     
-    def email(self,first_name,last_name):
-        return f'{first_name.lower()}.{last_name.lower()}@company.com'
-    def firstname(self,first_name,last_name):
-        return f'{first_name.title()}'
+    def email(self):
+        return f'{self.first_name.lower()}.{self.last_name.lower()}@company.com'
+    def firstname(self):
+        return f'{self.first_name.title()}'
     
-emp=Employee()
+emp=Employee("John", "Smith")
 
-print(emp.fullname("John", "Smith"))
-print(emp.email("John", "Smith"))
-print(emp.firstname("John", "Smith"))
+print(emp.fullname())
+print(emp.email())
+print(emp.firstname())
         
