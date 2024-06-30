@@ -11,7 +11,7 @@ Created on Sun Jun 30 22:12:56 2024
 
 ''' Method one '''
 def Fibonacci_sequence(num):
-    Fibonacci_list=[1,0]
+    Fibonacci_list=[0,1]
     for x in range(1,num-1):
         next_num=Fibonacci_list[-1]+Fibonacci_list[-2]
         Fibonacci_list.append(next_num)
