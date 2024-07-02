@@ -136,6 +136,131 @@ df_iloc=df.iloc[0:2]
 df_iloc
 
 '''
+9.
 Write a Pandas program to convert a given Series to an array.
 '''
 df_name_to_series_into_array= df_name_to_series.values
+
+'''
+10.
+Write a Pandas program to convert Series of lists to one Series.
+'''
+s1 = pd.Series([
+    ['Red', 'Green', 'White'],
+    ['Red', 'Black'],
+    ['Yellow']])
+
+# converted s1 into row and column
+series_of_list_to_one_series=s1.apply(pd.Series) 
+#converted columns into row
+series_of_list_to_one_series=s1.apply(pd.Series).stack() 
+
+# dropped column index and create on series
+series_of_list_to_one_series=s1.apply(pd.Series).stack().reset_index(drop=True)
+
+series_of_list_to_one_series
+
+'''
+11.
+Write a Pandas program to sort a given Series.
+'''
+# By default sort_values() is asc 
+series_sorting_asc=series_of_list_to_one_series.sort_values()
+# series sorting desc
+series_sorting_desc=series_of_list_to_one_series.sort_values(ascending=False)
+
+'''
+12.
+Write a Pandas program to add some data to an existing Series.
+'''
+# adding some value to each item in the series 
+adding_data_to_series1=series_of_list_to_one_series.add('_sonam')
+
+# use concat (existing series + crete new series using list)
+# to ignore new added series indexing use(ignore_index=True)
+adding_data_to_series2=pd.concat([series_of_list_to_one_series,pd.Series([500,'mony'])],ignore_index=True)
+
+
+'''
+13.
+Write a Pandas program to create a subset of a given series based 
+on value and condition.
+'''
+s1 = pd.Series([00,100,200,300,400,5,6,700,8,9,10000])
+s2=s1[s1<50]
+
+'''
+14.
+Write a Pandas program to change the order of index of a given 
+series.
+'''
+# createing series with defined index (use data= [],index=[])
+s1 = pd.Series(data = [1,2,3,4,5], index = ['A', 'B', 'C','D','E'])
+
+# re-arraging the index of series
+# Data Series after changing the order of index:
+s2=s1.reindex(index=['B','A','C','D','E'])
+
+'''
+15.
+Write a Pandas program to create the mean and standard deviation 
+of the data of a given Series.
+'''
+s1 = pd.Series([00,100,200,300,400,5,6,700,8,9,10000])
+s1_mean=s1.mean()
+s1_std=s1.std()
+
+'''
+16.
+Write a Pandas program to get the items of a given series not 
+present in another given series.
+'''
+sr1 = pd.Series([1, 2, 3, 4, 5])
+sr2 = pd.Series([2, 4, 6, 8, 10])
+
+s3= sr1[~sr1.isin(sr2)]
+
+'''
+17.
+Write a Pandas program to get the items which are not common of 
+two given series.
+'''
+sr1_unique = sr1[~sr1.isin(sr2)]
+sr2_unique=sr2[~sr2.isin(sr1)]
+
+# always give concat in a list[]
+unique=pd.concat([sr1_unique,sr2_unique])
+
+
+'''
+18.
+Write a Pandas program to compute the minimum, 25th percentile, 
+median, 75th, and maximum of a given series.
+'''
+s1
+s1_minimum=s1.min()
+s1_maximun=s1.max()
+s1_median=s1.median()
+s1_25th_percentile=s1.quantile([0.25,0.50,0.75])
+
+
+
+'''
+19.
+Write a Pandas program to calculate the frequency counts of 
+each unique value of a given series.
+'''
+
+'''
+20.
+
+'''
+
+
+
+
+
+
+
+
+
