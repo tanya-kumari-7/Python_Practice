@@ -5,6 +5,7 @@ Created on Mon Jul  1 20:39:37 2024
 @author: user
 """
 import pandas as pd
+import numpy as np
 
 '''
 1.
@@ -225,8 +226,12 @@ s3= sr1[~sr1.isin(sr2)]
 Write a Pandas program to get the items which are not common of 
 two given series.
 '''
+# ~: This is the bitwise NOT operator. It inverts the 
+# boolean values. True becomes False, and False becomes True. 
+
 sr1_unique = sr1[~sr1.isin(sr2)]
 sr2_unique=sr2[~sr2.isin(sr1)]
+sr2_unique=sr2[sr2.isin(sr1)]
 
 # always give concat in a list[]
 unique=pd.concat([sr1_unique,sr2_unique])
@@ -250,12 +255,185 @@ s1_25th_percentile=s1.quantile([0.25,0.50,0.75])
 Write a Pandas program to calculate the frequency counts of 
 each unique value of a given series.
 '''
+list_num_series=pd.Series([1,2,3,5,6,5,4,3,2,1])
+vaue_count=list_num_series.value_counts()
 
 '''
 20.
-
+Write a Pandas program to display most frequent value in a 
+given series and replace everything else as ‘Other’ in the 
+series.
 '''
+data = pd.Series(
+    ['apple', 'banana', 'apple', 'orange', 'banana', 'apple', 'kiwi'
+     ]
+    )
+most_frequent =data.value_counts().idxmax()
+result=[]
+for x in data:
+    if x == most_frequent:
+        result.append(x)
+    else:
+        result.append('other')
+        
+print(result)
 
+"""
+21.
+Write a  Pandas program to find the positions of numbers 
+that are multiples of 5 of a given series.
+"""
+# Find Positions: Use np.where to identify the positions 
+# where the values in the series are multiples of 5. 
+num_series = pd.Series(np.random.randint(1, 10, 9))
+result=np.where(num_series % 5 ==0)[0]
+
+"""
+22.
+Write a Pandas program to extract items at given positions 
+of a given series.
+"""
+#  use of .take(index)
+num_series = pd.Series(list('2390238923902390239023'))
+element_pos = [0, 2, 6, 11, 21]
+
+items_with_given_index_value=num_series.take(element_pos)
+
+"""
+23.
+Write a Pandas program to get the positions of 
+items of a given series in another given series.
+"""
+series1 = pd.Series([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+series2 = pd.Series([1, 3, 5, 7, 10])
+postition_of_s1_in_s2= series1[series1.isin(series2)].index
+
+"""
+24.
+Write a  Pandas program convert the first and last character 
+of each word to upper case in each word of a given series.
+
+"""
+data
+result=[]
+for x in data:
+    y=x[0].upper() + x[1:-1] + x[-1].upper()
+    result.append(y)
+    
+"""
+25.
+Write a  Pandas program to calculate the number of 
+characters in each word in a given series.
+"""
+data
+data_dic={}
+
+for x in data:
+    data_dic[x]=len(x)
+print(pd.Series(data_dic))
+
+"""
+26.
+Write a Pandas program to compute difference of differences 
+between consecutive numbers of a given series.
+"""
+series1 = pd.Series([1, 3, 5, 8, 10, 11, 15])
+#  calculate diffrence bwetween two numbers
+diff_series=(series1.diff()).tolist()
+diff_of_diff=series1.diff().diff().tolist()
+diff_of_diff
+
+"""
+27.
+Write a Pandas program to convert a series of date 
+strings to a timeseries.
+"""
+# Sample data
+date_series = pd.Series(['01 Jan 2015', '10-02-2016', '20180307', '2014/05/06', '2016-04-12', '2019-04-06T11:20'])
+
+# Function to parse dates
+def parse_date(date_str):
+    formats = ["%d %b %Y", "%d-%m-%Y", "%Y%m%d", "%Y/%m/%d", "%Y-%m-%d", "%Y-%m-%dT%H:%M"]
+    for fmt in formats:
+        try:
+            return pd.to_datetime(date_str, format=fmt)
+        except ValueError:
+            continue
+    return pd.NaT
+
+# Apply the parsing function to the series
+datetime_series = date_series.apply(parse_date)
+print(datetime_series)
+
+"""
+28.
+Write a  Pandas program to get the day of month, day of year, 
+week number and day of week from a given series of date 
+strings.
+"""
+date_series
+
+day_of_month=date_series.dt.day.tolist()
+day_of_month
+
+day_of_year=date_series.dt.dayofyear.tolist()
+day_of_year
+
+day_of_week=date_series.dt.dayofweek.tolist()
+day_of_week
+
+
+"""
+29.
+Write a  Pandas program to convert year-month 
+string to dates adding a specified day of the month.
+
+"""
+"""
+30.
+
+"""
+"""
+31.
+
+"""
+"""
+32.
+
+"""
+"""
+33.
+
+"""
+"""
+34.
+
+"""
+"""
+35.
+
+"""
+"""
+36.
+
+"""
+"""
+37.
+
+"""
+"""
+38.
+
+"""
+"""
+39.
+
+"""
+"""
+40.
+
+"""
+        
 
 
 
