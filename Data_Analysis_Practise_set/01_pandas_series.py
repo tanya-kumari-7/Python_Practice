@@ -387,16 +387,39 @@ day_of_week
 29.
 Write a  Pandas program to convert year-month 
 string to dates adding a specified day of the month.
-
 """
+
+date_series = pd.Series(
+    ['Jan 2015', 'Feb 2016', 'Mar 2017', 'Apr 2018', 'May 2019'
+     ])
+
+datetime_series=pd.to_datetime(date_series,errors='coerce')
+datetime_series
+
 """
 30.
-
+Write a Pandas program to filter words from a given series 
+that contain atleast two vowels.
 """
+color_series = pd.Series(['Red', 'Green', 'Orange', 'Pink', 'Yellow', 'White'])
+vowels=['a','e','i','o','u']
+result=[]
+working={x:0 for x in color_series}
+for x in color_series:
+    for y in x.lower():
+        if y in vowels:
+            working[x] +=1
+        else :
+            continue
+result=[x for x in working if working[x] >=2]
+            
 """
 31.
-
+Write a Pandas program to compute the Euclidean distance 
+between two given series.
 """
+
+
 """
 32.
 
