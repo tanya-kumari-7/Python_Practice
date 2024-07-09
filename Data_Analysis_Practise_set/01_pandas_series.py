@@ -418,43 +418,113 @@ result=[x for x in working if working[x] >=2]
 Write a Pandas program to compute the Euclidean distance 
 between two given series.
 """
+import math
+x = pd.Series([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+y = pd.Series([11, 8, 7, 5, 6, 5, 3, 4, 7, 1])
 
+def Euclidean_distance_func(s1,s2):
+    distance=0
+    for x in range(len(s1)):
+        distance += ((s1[x]) - (s2[x])) **2
+    return math.sqrt(distance)
+
+result= Euclidean_distance_func(x, y)
+print(result)
+    
 
 """
 32.
-
+Write a Pandas program to find the positions of the values 
+neighboured by smaller values on both sides in a given series.
 """
+nums = pd.Series([1, 8, 7, 5, 6, 5, 3, 4, 7, 1])
+# loop on series:
+# for index,value in nums.items():
+#     print (index,value)
+
+# print(nums.iloc[1]) for series index
+
+result_list=[]
+
+for x in range(1,len(nums)-1):
+    if nums.iloc[x-1] < nums.iloc[x] and nums.iloc[x+1] < nums.iloc[x]:
+        result_list.append(x)
+print(result_list)
+
 """
 33.
-
+Write a Pandas program to replace missing white spaces in a 
+given string with the least frequent character.
 """
+str1 = 'abc def abcdef icd'
+# convert string list into list and then list into series
+str1_value_count=pd.Series(list(str1)).value_counts()
+min_char=str1_value_count.idxmin()
+
+reustr=str1.replace(' ', min_char)
+
+
+
 """
 34.
 
 """
 """
 35.
-
+Write a Pandas program to create a TimeSeries to display 
+all the Sundays of given year.
 """
+
+# Define the year
+year = 2024
+
+# Create a DatetimeIndex of all Sundays in the given year
+sundays = pd.date_range(start=f'{year}-01-01', end=f'{year}-12-31', freq='W-SUN')
+
+# Convert DatetimeIndex to a Series
+sundays_series = pd.Series(sundays)
+
 """
 36.
-
+Write a Pandas program to convert given series into a dataframe 
+with its index as another column on the dataframe.
 """
+color_series
+dic={y:x for x,y in color_series.items() }
+df=pd.DataFrame(dic.items(), columns=['Index', 'Color'])
+df
+
 """
 37.
-
+Write a Pandas program to stack two given series vertically and 
+horizontally.
 """
+series1 = pd.Series(range(10))
+series2 = pd.Series(list('pqrstuvwxy'))
+df=pd.DataFrame([series1,series2])
+df2=pd.concat([series1,series2],axis=1)
+
 """
 38.
-
+Write a Pandas program to check the equality of two given series.
 """
+nums1 = pd.Series([1, 8, 7, 5, 6, 5, 3, 4, 7, 1])
+nums2 = pd.Series([1, 8, 7, 5, 6, 5, 3, 4, 7, 2])
+
+result={}
+
+for num1,num2 in zip(nums1,nums2):
+    result[num1]=num1==num2
 """
 39.
+Write a Pandas program to find the index of the first occurrence of 
+the smallest and largest value of a given series.
 
 """
 """
 40.
-
+Write a Pandas program to check inequality over the index axis of a 
+given dataframe and a given series.
 """
         
 
