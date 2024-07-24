@@ -19,3 +19,5 @@ df=pd.DataFrame(exam_data,index=labels)
 print(df)
 
 df.iloc[3:]
+
+#df_dropped = df.iloc[n:].reset_index(drop=True)
