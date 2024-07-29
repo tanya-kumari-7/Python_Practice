@@ -1,7 +1,8 @@
 # =============================================================================
 '''
-Write a Pandas program to split the following dataframe into 
-groups based on school code. Also check the type of GroupBy object.
+Write a Pandas program to split the following given 
+dataframe into groups based on school code and class.
+
 '''
 # =============================================================================
 import pandas as pd
@@ -20,7 +21,7 @@ student_data = pd.DataFrame({
     index=['S1', 'S2', 'S3', 'S4', 'S5', 'S6'])
 print(student_data)
 
-result=student_data.groupby(['school_code','class'])
+df= student_data.groupby(['school_code','class'])
 
-for x,y in result:
-    print()
+for name,group in df:
+    print(name,group)
