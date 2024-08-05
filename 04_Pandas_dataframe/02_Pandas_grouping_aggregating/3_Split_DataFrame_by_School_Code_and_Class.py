@@ -25,3 +25,9 @@ df= student_data.groupby(['school_code','class'])
 
 for name,group in df:
     print(name,group)
+
+# =============================================================================
+# method 2 
+# =============================================================================
+grouped_df = df.apply(lambda x: x)
+print(grouped_df)
