@@ -20,7 +20,5 @@ student_data = pd.DataFrame({
     index=['S1', 'S2', 'S3', 'S4', 'S5', 'S6'])
 print(student_data)
 
-result=student_data.groupby(['school_code','class'])
+student_data.groupby('school_code').agg({'age':['mean','min','max']})
 
-for x,y in result:
-    print()
