@@ -22,3 +22,4 @@ orders_data = pd.DataFrame({
 result=orders_data.groupby(['salesman_id','customer_id']).agg({'purch_amt':'sum'})
 result2 = result['purch_amt'].groupby(level=0)
 print(result2.nlargest())
+# sorted_date=result.sort_values(by='purch_amt',ascending=True).reset_index()
