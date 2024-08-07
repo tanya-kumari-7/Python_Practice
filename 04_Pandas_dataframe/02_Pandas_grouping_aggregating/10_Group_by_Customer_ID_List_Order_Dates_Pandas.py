@@ -1,9 +1,7 @@
 # =============================================================================
 '''
 Write a Pandas program to split the following dataframe into 
-groups based on customer id and create a list of order date for 
-each group.
-
+groups and calculate monthly purchase amount.
 '''
 # =============================================================================
 import pandas as pd
@@ -16,8 +14,5 @@ orders_data = pd.DataFrame({
 'salesman_id': [5002,5005,5001,5003,5002,5001,5001,5006,5003,5002,5007,5001]
 })
 
-result1=orders_data.groupby('customer_id')['ord_date'].apply(list)
-
-result=orders_data.groupby('customer_id')
-for x,y in result:
-    print(x,list(y['ord_date']))
+orders_data['ord_month']
+ss
