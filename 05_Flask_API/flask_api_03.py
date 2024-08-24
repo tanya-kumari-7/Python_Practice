@@ -11,21 +11,20 @@ from flask import Flask, render_template, request
 # ~POST API
 
 app= Flask(__name__)
-l1=[]
 response={}
 @app.route('/',methods=['GET'])
 def addAPI():
-    Add_date= request.get_json()
-    sum_=list(Add_date.values())[0]+list(Add_date.values())[1]
-    l1.append(sum_)
-    response['msg']= 'Added_date'
-    response['data']=l1
+    request_json= request.get_json()
+    print(request_json.get("a"))
+    print(request_json.get("b"))    
+    sum=request_json.get("a") + request_json.get("b")
+   
+    response['msg']= 'Add data'
+    response['data']=sum
     return response
+
 
 if __name__ == '__main__':
     app.run(debug=False)
-    
-    
-
 
     
