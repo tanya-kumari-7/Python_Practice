@@ -41,7 +41,41 @@ def get_api():
 
     return jsonify(response) 
     
+# --------------------------------------- Put
+
+
+@app.route('/paris', methods=['PUT'])
+def put_api():
     
+    conn = psycopg2.connect(** postgres)
+    cur = conn.cursor()
+    data = request.get_json()
+    get_key = data.get('location_pk')
+    get_key2 = data.get('title')
+    print(get_key)
+    
+    query = '''
+    UPDATE api_searchlocation_paris SET title = %s where location_pk = %s
+    '''
+    cur.execute(query,(get_key2,get_key,))
+    conn.commit()
+    
+    # get_data = cur.fetchall()
+    # print(get_data)
+    # mapped_data = [map_row_to_structure(row) for row in get_data]
+    # print(mapped_data)
+    
+    response = {}
+    response['Msg'] ='Get Success'
+    response['data'] = data
+    
+    cur.close()
+    conn.close()
+
+    return jsonify(response) 
+    
+
+
     
 app.run(debug=False)
 
@@ -50,10 +84,7 @@ app.run(debug=False)
 def map_row_to_structure(row):
     return {
         'location_pk_': row[0],
-        'title_': row[1]
-    }
-    
-    
-    
+        'title_': row[1] }
+
     
     
