@@ -74,7 +74,41 @@ def put_api():
 
     return jsonify(response) 
     
+# --------------------------------------- PATCH
 
+
+@app.route('/paris', methods=['PATCH'])
+def PATCH_api():
+    
+    conn = psycopg2.connect(** postgres)
+    cur = conn.cursor()
+    data = request.get_json()
+    location_pk = data.get('location_pk')
+    title = data.get('title')
+    subtitle = data.get('subtitle')
+    
+    query = '''
+    UPDATE api_searchlocation_paris 
+        SET title = %s ,
+         subtitle= %s
+    where location_pk = %s
+    '''
+    cur.execute(query,(title,subtitle,location_pk,))
+    conn.commit()
+    
+    # get_data = cur.fetchall()
+    # print(get_data)
+    # mapped_data = [map_row_to_structure(row) for row in get_data]
+    # print(mapped_data)
+    
+    response = {}
+    response['Msg'] ='Get Success'
+    response['data'] = data
+    
+    cur.close()
+    conn.close()
+
+    return jsonify(response) 
 
     
 app.run(debug=False)
