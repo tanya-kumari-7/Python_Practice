@@ -66,7 +66,7 @@ def put_api():
     # print(mapped_data)
     
     response = {}
-    response['Msg'] ='Get Success'
+    response['Msg'] ='PUT Success'
     response['data'] = data
     
     cur.close()
@@ -102,13 +102,45 @@ def PATCH_api():
     # print(mapped_data)
     
     response = {}
-    response['Msg'] ='Get Success'
+    response['Msg'] ='PATCH Success'
     response['data'] = data
     
     cur.close()
     conn.close()
 
     return jsonify(response) 
+
+# --------------------------------------DELETE API
+
+@app.route('/paris', methods=['DELETE'])
+def DELETE_api():
+    
+    conn = psycopg2.connect(** postgres)
+    cur = conn.cursor()
+    data = request.get_json()
+    location_pk = data.get('location_pk')
+    
+    query = '''
+    DELETE FROM api_searchlocation_paris 
+    where location_pk = %s
+    '''
+    cur.execute(query,(location_pk,))
+    conn.commit()
+    
+    # get_data = cur.fetchall()
+    # print(get_data)
+    # mapped_data = [map_row_to_structure(row) for row in get_data]
+    # print(mapped_data)
+    
+    response = {}
+    response['Msg'] ='DELETE Success'
+    response['data'] = data
+    
+    cur.close()
+    conn.close()
+
+    return jsonify(response) 
+
 
     
 app.run(debug=False)
