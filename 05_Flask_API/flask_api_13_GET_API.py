@@ -151,6 +151,6 @@ def map_row_to_structure(row):
     return {
         'location_pk_': row[0],
         'title_': row[1] }
-
+PPP
     
     
