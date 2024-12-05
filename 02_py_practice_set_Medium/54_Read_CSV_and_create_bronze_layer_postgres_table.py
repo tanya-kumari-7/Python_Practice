@@ -33,7 +33,7 @@ student_master=pd.DataFrame(temp_student_list)
 student_master.to_csv(r"C:\Users\user\Documents\student_data.csv", index=False)
         
 
-#Reading CSV ##############################################################################
+#Reading CSV and creating bronze layer table ##############################################################################
 
 
 """
@@ -75,3 +75,4 @@ finally:
         cur.close()
     if conn is not None:
         conn.close()
+        
