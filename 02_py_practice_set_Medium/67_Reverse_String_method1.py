@@ -11,6 +11,13 @@ def Reverse_String_method1 (price):
     Reverse_String = list(reversed(string))
     return (Reverse_String)
 
-Function_result = Reverse_String_method1(string)
-print(Function_result)
+Function_result1 = Reverse_String_method1(string)
+print(Function_result1)
+
+def Reverse_String_method2 (price):
+    Reverse_String = price[::-1]
+    return (Reverse_String)
+
+Function_result2 = Reverse_String_method2(string)
+print(Function_result2)
 
