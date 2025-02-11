@@ -28,19 +28,17 @@ Input: strs = ["a"]
 
 Output: [["a"]]
 '''
+strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+anagram_dict = {}
 
-strs = ["eat","tea","tan","ate","nat","bat"]
-
-check = []
-check2 = []
-result1 = []
-result2 = []
-
-for t in range(len(strs)):
-    for x in strs[t:]:
-        for i in x:
-            check.append(i)
-            break
-    break
-
+for word in strs:
+    sorted_word = "".join(sorted(word)) 
+    if sorted_word in anagram_dict:
+        anagram_dict[sorted_word].append(word)
+    else:
+        anagram_dict[sorted_word] = [word]
         
+print(anagram_dict)
+
+result = list(anagram_dict.values()) 
+print(result)
