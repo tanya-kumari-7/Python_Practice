@@ -1,18 +1,17 @@
 '''
-Remove Duplicates from a List
+Find the Second Largest Number
 '''
-a = [1,2,2,3,4,'sonam','tanya','tanya']
+a = [10,2,1,3000,400]
 
-def Remove_Duplicates_func(list_1):
-    unique_list=[]
-    dupli_list = []
-    for x in list_1:
-        if x not in unique_list:
-            unique_list.append(x)
-        else:
-            dupli_list.append(x)
-    return f'{unique_list} &  {len(dupli_list)} is a duplicate count in a list'
-   
-            
-result = Remove_Duplicates_func(a)
+def Second_Largest_Number_func(list_1):
+    largest = []
+    check = 0
+    for x in range(len(a)):
+        if a[x] > check:
+            check = a[x]
+            largest.append(check)
+    return largest[::-1]
+        
+result = Second_Largest_Number_func(a)
 print(result)
+
