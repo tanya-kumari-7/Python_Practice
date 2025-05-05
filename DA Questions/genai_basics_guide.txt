@@ -1,0 +1,94 @@
+
+Generative AI (GenAI) Basics Guide
+==================================
+
+What is Generative AI?
+----------------------
+Generative AI refers to artificial intelligence that can generate new content—like text, images, audio, video, or code—based on data it has learned from.
+
+It uses machine learning models, especially deep learning, to learn patterns from existing data and create something new that resembles it.
+
+Foundational Concepts
+---------------------
+AI vs Machine Learning vs Generative AI:
+
+| Term               | Meaning                                                                 |
+|--------------------|-------------------------------------------------------------------------|
+| Artificial Intelligence (AI) | Broad field of machines that mimic human intelligence                |
+| Machine Learning (ML)        | Subfield of AI that uses data to learn and make predictions         |
+| Generative AI                | Subfield of ML that *creates* data instead of just predicting it     |
+
+Example:
+- AI: A chatbot that answers questions.
+- ML: Predicting tomorrow’s weather.
+- GenAI: Creating a new poem or drawing in the style of Shakespeare or Picasso.
+
+Types of Generative Models
+--------------------------
+Language Models (e.g., ChatGPT): Generate human-like text.
+
+Example:
+Prompt: "Write a story about a dragon and a unicorn"
+Output: "Once upon a time, in a land filled with misty mountains..."
+
+Image Generators (e.g., DALL·E, MidJourney): Create images from text prompts.
+Prompt: “A futuristic city on Mars with flying cars.”
+
+Audio & Music Generators (e.g., Jukebox by OpenAI): Compose music or mimic voices.
+
+Code Generators (e.g., GitHub Copilot): Help programmers by generating code.
+Prompt: “Write a Python function to calculate factorial.”
+
+Core Techniques Behind GenAI
+----------------------------
+Neural Networks: Artificial systems that mimic how the human brain processes information.
+
+Transformers: Architecture used in models like GPT. It understands context and generates meaningful responses.
+
+Training vs Inference:
+- Training: Model learns from huge datasets.
+- Inference: Model uses what it has learned to generate new content.
+
+Hands-On Examples
+-----------------
+Using ChatGPT (Text Generation):
+Prompt: “Write a short poem about stars.”
+Prompt: “Summarize the plot of Harry Potter in 3 sentences.”
+
+Using DALL·E (Image Generation):
+Visit https://openai.com/dall-e and try:
+Prompt: “An astronaut riding a horse in a futuristic desert.”
+
+Using Google’s MusicLM (Audio Generation):
+Prompt: “Jazz music in the style of the 1920s with a modern twist.”
+
+Tools and Platforms You Can Try
+-------------------------------
+| Tool             | Use Case           | Link |
+|------------------|--------------------|------|
+| ChatGPT          | Text generation    | https://chat.openai.com |
+| DALL·E           | Image generation   | https://openai.com/dall-e |
+| Runway ML        | Video & media tools| https://runwayml.com |
+| Teachable Machine| Create your own ML models | https://teachablemachine.withgoogle.com |
+| HuggingFace Spaces | Try models for NLP, vision, etc. | https://huggingface.co/spaces |
+
+Best Beginner Resources
+-----------------------
+Articles & Guides:
+- https://openai.com/learn
+- https://ai.google
+- https://towardsdatascience.com/
+
+Videos:
+- YouTube Playlist – Generative AI for Beginners
+
+Books:
+- “You Look Like a Thing and I Love You” by Janelle Shane
+- “Deep Learning with Python” by François Chollet
+
+Practice Prompts for You
+------------------------
+- Write a rap song about learning AI.
+- Generate an image of a city built on clouds.
+- Ask ChatGPT: “Explain transformers like I’m 5.”
+
