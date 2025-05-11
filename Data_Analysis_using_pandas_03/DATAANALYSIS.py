@@ -67,6 +67,7 @@ df[(df["Order_ID"] == 10)]
 
 
 df.columns
+df
 
 # Exploring data from the DataFrame
 df['Product'].unique()
@@ -75,4 +76,21 @@ df['Product'].value_counts()
 df['Product'].value_counts(normalize=True)
 df['Product'].value_counts().plot(kind='bar')
 
+# filtering the DataFrame
 
+ # Orders above 1000
+ df[df["Order_Amount"]>1000]
+df[df["Order_Amount"]<1000]
+
+# Creating a new column using Order_Amount
+df["Order_Amount_Group"] = df["Order_Amount"].apply(lambda x: "High" if x > 1000 else "Low")
+
+def get_category(row):
+   if row["Order_Amount"] > 1000 and row["Discount"] > 100:
+       return "Premium"
+   elif row["Order_Amount"] > 1000 and row["Discount"] <= 100:
+       return "Standard"
+
+df['order_category'] = df.apply(get_category, axis=1)
+df.columns
+df
