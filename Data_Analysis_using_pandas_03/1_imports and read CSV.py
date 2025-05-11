@@ -20,3 +20,18 @@ data = {
 
 df = pd.DataFrame(data)
 print(df)
+
+# Exploring the DataFrame
+
+df.shape
+df.head()
+df.tail()
+df.count()
+df.describe()
+df.info()
+len(df)
+df.columns
+df.dtypes
+df.isnull().sum()
+
+
