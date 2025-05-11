@@ -36,7 +36,6 @@ df.dtypes
 df.isnull().sum()
 
 # Checking for duplicates
-df.duplicated().sum()  # Check for duplicates
 
 for col in df.columns:
     total_value = df[col].shape[0]
@@ -44,8 +43,30 @@ for col in df.columns:
     duplicate_count = total_value - unique_value
     print(f"Column '{col}' has {duplicate_count} duplicates.")
 
+# get the duplicate rows
+duplicates = df[df.duplicated()]
+print("Duplicate Rows:" , duplicates)
+
+duplicates = df[df.duplicated(keep=False)]
+print(duplicates)
+
+duplicates = df[df.duplicated(subset='Order_ID', keep=False)]
+print(duplicates)
+
+len(df)
+
+# updating the id for the duplicate rows
+df[(df["Order_ID"] == 1) & (df["Order_Date"] == '2024-01-07')]
+df.loc[(df["Order_ID"]==1) & (df["Order_Date"] == '2024-01-07'), "Order_ID"] = 11
+
+df[(df["Order_ID"]==10) & (df["Order_Date"] == "2024-03-17")]
+df.loc[(df["Order_ID"]==10) & (df["Order_Date"] == "2024-03-17"),"Order_ID"]= 12
+
+df[(df["Order_ID"] == 1)]
+df[(df["Order_ID"] == 10)]
 
 
+df.columns
 
 # Exploring data from the DataFrame
 df['Product'].unique()
