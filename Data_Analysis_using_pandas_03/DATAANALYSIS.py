@@ -97,7 +97,7 @@ df
 
 df[df["order_category"] == "Premium"]
 df[df["order_category"] == "Standard"]
-
+df[df["Order_Amount"] > 1000][["Order_ID", "Customer_Name", "Product", "Order_Amount"]]
 df[df["order_category"].isna()]
 
 
