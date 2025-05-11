@@ -7,6 +7,7 @@ import plotly.express as px
 import pandas as pd
 import numpy as np
 
+
 data = {
     "Order_ID": range(1, 11),
     "Customer_Name": ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Hannah', 'Ivan', 'Jack'],
@@ -23,6 +24,7 @@ print(df)
 
 # Exploring the DataFrame
 
+# basic information about the DataFrame
 df.shape
 df.head()
 df.tail()
@@ -33,5 +35,16 @@ len(df)
 df.columns
 df.dtypes
 df.isnull().sum()
+
+# Checking for duplicates
+df.duplicated().sum()  # Check for duplicates
+
+
+# Exploring data from the DataFrame
+df['Product'].unique()
+df['Product'].nunique()
+df['Product'].value_counts()
+df['Product'].value_counts(normalize=True)
+df['Product'].value_counts().plot(kind='bar')
 
 
