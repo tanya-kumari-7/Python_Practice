@@ -94,3 +94,4 @@ def get_category(row):
 df['order_category'] = df.apply(get_category, axis=1)
 df.columns
 df
+
