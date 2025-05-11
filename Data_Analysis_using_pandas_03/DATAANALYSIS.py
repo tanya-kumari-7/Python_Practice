@@ -95,3 +95,9 @@ df['order_category'] = df.apply(get_category, axis=1)
 df.columns
 df
 
+df[df["order_category"] == "Premium"]
+df[df["order_category"] == "Standard"]
+
+df[df["order_category"].isna()]
+
+
