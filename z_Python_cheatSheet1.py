@@ -113,3 +113,129 @@ def greet(name):
 # Example function call
 greeting = greet(name)
 
+# Print greeting
+print(greeting)
+
+# Lists
+"""
+- Lists are ordered collections of items.
+- They can contain mixed data types.
+"""
+my_list = [1, 2, 3, 4, 5]
+mixed_list = [1, "two", 3.0, True]
+
+# Accessing List Elements
+"""
+- You can access list elements using indexing.
+- Indexing starts at 0.
+"""
+first_element = my_list[0]
+second_element = mixed_list[1]
+
+# Print accessed elements
+print("First Element:", first_element)
+print("Second Element:", second_element)
+
+# Modifying Lists
+"""
+- Lists are mutable, meaning you can change their content.
+"""
+my_list[0] = 10
+mixed_list.append("new item")
+
+# Print modified lists
+print("Modified List:", my_list)
+print("Modified Mixed List:", mixed_list)
+
+# Dictionaries
+"""
+- Dictionaries are collections of key-value pairs.
+- They are unordered and mutable.
+"""             
+my_dict = {
+    "name": "Alice",
+    "age": 30,
+    "is_student": False
+}
+# Accessing Dictionary Values
+
+name_value = my_dict["name"]
+age_value = my_dict["age"]
+is_student_value = my_dict["is_student"]
+
+# Print accessed values
+print("Name:", name_value)
+print("Age:", age_value)
+print("Is Student:", is_student_value)
+
+# Modifying Dictionaries
+my_dict["age"] = 31  # Update age
+my_dict["city"] = "New York"  # Add new key-value pair
+
+# Print modified dictionary
+print("Modified Dictionary:", my_dict)
+
+# tuples
+"""
+- Tuples are ordered collections of items, similar to lists.        
+- They are immutable, meaning their content cannot be changed after creation.
+"""
+my_tuple = (1, 2, 3, "four", True)
+
+# Accessing Tuple Elements
+first_tuple_element = my_tuple[0]
+
+# Print accessed tuple element
+print("First Tuple Element:", first_tuple_element)
+
+# Sets
+"""
+- Sets are unordered collections of unique items.
+- They are mutable and do not allow duplicate values.
+"""
+
+my_set = {1, 2, 3, 4, 5}
+# Adding and Removing Elements from a Set
+my_set.add(6)  # Add an element
+my_set.remove(2)  # Remove an element
+
+# Print modified set
+print("Modified Set:", my_set)
+
+# lambda Functions
+"""
+- Lambda functions are small anonymous functions defined using the lambda keyword.
+- They can take any number of arguments but can only have one expression.   
+
+"""
+add = lambda x, y: x + y
+# Example lambda function call
+
+result = add(5, 3)
+# Print lambda function result
+print("Lambda Function Result:", result)    
+
+# List Comprehensions
+"""
+- List comprehensions provide a concise way to create lists.
+- They consist of brackets containing an expression followed by a for clause.
+"""
+squared_numbers = [x**2 for x in range(10)]
+# Print list comprehension result
+print("Squared Numbers:", squared_numbers)
+
+# Exception Handling
+"""
+- Exception handling is done using try and except blocks.
+- It allows you to handle errors gracefully without crashing the program.
+"""
+try:
+    result = 10 / 0  # This will raise a ZeroDivisionError
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+finally:
+    print("This block always executes, regardless of an error.")
+# File I/O
+"""
