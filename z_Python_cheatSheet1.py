@@ -59,3 +59,57 @@ is_greater = (x > y)
 is_less = (x < y)
 is_greater_equal = (x >= y)
 is_less_equal = (x <= y)
+
+# Print comparison results
+print("Is Equal:", is_equal)
+print("Is Not Equal:", is_not_equal)
+print("Is Greater:", is_greater)
+print("Is Less:", is_less)
+print("Is Greater or Equal:", is_greater_equal)
+print("Is Less or Equal:", is_less_equal)
+
+# Logical Operations
+"""
+- AND: x and y
+- OR: x or y
+- NOT: not x
+"""
+# Example Logical Operations
+is_true = True
+is_false = False
+logical_and = is_true and is_false
+logical_or = is_true or is_false 
+logical_not = not is_true
+
+# Print logical results
+print("Logical AND:", logical_and)
+print("Logical OR:", logical_or)
+print("Logical NOT:", logical_not)
+
+# Control Structures
+"""
+- If statements: if condition: do something
+- For loops: for item in iterable: do something
+- While loops: while condition: do something
+"""
+# Example Control Structures
+if is_true:
+    print("This is true")
+
+for i in range(5):
+    print("Iteration:", i)
+
+while is_false:
+    print("This will not print")
+
+# Functions
+"""
+- Functions are defined using the def keyword.
+- They can take parameters and return values.
+"""
+def greet(name):
+    """Function to greet a person."""
+    return f"Hello, {name}!"
+# Example function call
+greeting = greet(name)
+
