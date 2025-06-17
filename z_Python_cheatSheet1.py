@@ -273,7 +273,6 @@ print("Is 3 in Set:", is_in_set)
 
 
 
-
 # Control Structures
 """
 - If statements: if condition: do something
@@ -426,3 +425,104 @@ except Exception as e:
 finally:
     print("This block always executes, regardless of an error.")
 
+
+# File I/O
+
+"""
+- File I/O allows you to read from and write to files.
+- You can use the open() function to open a file and read or write data.
+""" 
+# Example File I/O
+with open("example.txt", "w") as file:
+    file.write("Hello, World!\n")
+    file.write("This is a test file.")
+# Reading from the file
+with open("example.txt", "r") as file:
+    content = file.read()
+# Print file content
+print("File Content:")
+print(content)
+
+# Modules and Packages
+"""
+- Modules are files containing Python code that can be imported into other Python scripts.
+- Packages are collections of modules organized in directories.
+"""
+# Example of importing a module
+import math
+# Using a function from the math module
+sqrt_result = math.sqrt(16)
+
+# Print square root result
+print("Square Root of 16:", sqrt_result)
+
+# Conclusion
+""" 
+This cheat sheet provides a quick overview of Python syntax and operations.
+For more detailed information, refer to the official Python documentation or other resources.
+"""
+# advanced python concepts and cheatsheet
+
+"""
+- Python has many advanced features and concepts that can enhance your programming skills.  
+- This section covers some of these advanced concepts, including decorators, generators, context managers, and more.
+"""
+# Decorators
+"""
+- Decorators are functions that modify the behavior of other functions or methods.
+- They are often used to add functionality to existing code without modifying it.
+"""
+def decorator_function(original_function):
+    def wrapper_function():
+        print("Wrapper executed before {}".format(original_function.__name__))
+        return original_function()
+    return wrapper_function
+@decorator_function
+def display():
+    """Function to display a message."""
+    print("Display function executed.")
+# Example decorator usage
+display()  # Call the decorated function
+# Generators
+"""
+- Generators are functions that return an iterator using the yield keyword.
+- They allow you to iterate over a sequence of values without storing the entire sequence in memory.
+"""
+def generator_function():
+    yield 1
+    yield 2
+    yield 3
+
+
+# Example generator usage
+gen = generator_function()
+for value in gen:
+    print("Generator Value:", value)
+# Context Managers
+"""
+- Context managers are used to manage resources, typically with the with statement.
+- They ensure that resources are properly acquired and released, even in the presence of errors.
+"""
+class ContextManagerExample:
+    def __enter__(self):
+        print("Entering context.")
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        print("Exiting context.")
+        if exc_type:
+            print(f"An error occurred: {exc_value}")
+# Example context manager usage
+with ContextManagerExample() as cm:
+    print("Inside context.")
+    # Uncomment the next line to see error handling in action
+    # raise ValueError("An example error.")
+print("Outside context.")
+# List Comprehensions with Conditionals
+"""
+
+- List comprehensions can include conditionals to filter items.
+"""
+filtered_numbers = [x for x in range(10) if x % 2 == 0]
+# Print filtered list
+print("Filtered Even Numbers:", filtered_numbers)
