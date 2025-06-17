@@ -153,6 +153,123 @@ print("Stripped String:", stripped_string)
 print("Split String:", split_string)
 print("Joined String:", joined_string)
 
+# all about Lists
+
+"""
+- Lists are ordered collections of items.
+- They can contain mixed data types and are defined using square brackets [].
+
+"""
+# Example Lists
+my_list = [1, 2, 3, "four", True]
+# List Operations
+"""
+- Accessing Elements: list[index]
+- Slicing: list[start:end]
+- Adding Elements: list.append(item)
+- Removing Elements: list.remove(item)
+- Length: len(list)
+"""
+
+# Example List Operations
+first_item = my_list[0]  # Accessing first element
+second_item = my_list[1:3]  # Slicing first two elements
+my_list.append("new item")  # Adding an item
+my_list.remove(2)  # Removing an item
+list_length = len(my_list)  # Getting the length of the list
+# Print list results
+print("First Item:", first_item)
+print("Second Item:", second_item)
+print("Modified List:", my_list)
+print("List Length:", list_length)
+
+# All about Dictionaries
+"""
+- Dictionaries are collections of key-value pairs.
+- They are unordered and mutable, defined using curly braces {}.
+"""
+# Example Dictionaries
+my_dict = {
+    "name": "Alice",
+    "age": 30,
+    "is_student": False
+}
+# Dictionary Operations
+
+"""
+- Accessing Values: dict[key]
+- Adding/Updating Values: dict[key] = value
+- Removing Values: del dict[key]
+- Keys: dict.keys()
+- Values: dict.values()
+"""
+# Example Dictionary Operations
+name_value = my_dict["name"]  # Accessing value by key
+age_value = my_dict["age"]  # Accessing value by key
+is_student_value = my_dict["is_student"]  # Accessing value by key
+# Adding a new key-value pair
+my_dict["city"] = "New York"  # Adding a new key-value pair
+# Updating an existing key-value pair
+my_dict["age"] = 31  # Updating age
+# Removing a key-value pair
+del my_dict["is_student"]  # Removing is_student key
+# Print dictionary results
+print("Name:", name_value)
+print("Age:", age_value)
+print("Is Student:", is_student_value)
+print("Modified Dictionary:", my_dict)
+
+
+# All about Tuples
+"""
+- Tuples are ordered collections of items, similar to lists.
+- They are immutable, meaning their content cannot be changed after creation.
+"""
+# Example Tuples
+my_tuple = (1, 2, 3, "four", True)
+# Tuple Operations
+"""
+- Accessing Elements: tuple[index]
+- Slicing: tuple[start:end]
+- Length: len(tuple)
+"""
+# Example Tuple Operations
+first_tuple_element = my_tuple[0]  # Accessing first element
+second_tuple_elements = my_tuple[1:3]  # Slicing first two elements
+tuple_length = len(my_tuple)  # Getting the length of the tuple
+# Print tuple results
+print("First Tuple Element:", first_tuple_element)
+print("Second Tuple Elements:", second_tuple_elements)
+print("Tuple Length:", tuple_length)
+
+# All about Sets
+"""
+- Sets are unordered collections of unique items.
+- They are mutable and defined using curly braces {}.
+"""
+# Example Sets
+my_set = {1, 2, 3, 4, 5}
+# Set Operations
+
+"""
+- Adding Elements: set.add(item)
+- Removing Elements: set.remove(item)
+- Checking Membership: item in set
+- Length: len(set)
+"""
+# Example Set Operations
+my_set.add(6)  # Adding an element
+my_set.remove(2)  # Removing an element
+
+# Checking membership
+is_in_set = 3 in my_set  # Checking if 3 is in the set
+set_length = len(my_set)  # Getting the length of the set
+# Print set results
+print("Modified Set:", my_set)
+print("Is 3 in Set:", is_in_set)
+
+
+
 
 
 
