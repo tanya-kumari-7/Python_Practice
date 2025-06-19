@@ -19,3 +19,13 @@ def Factorial_func(num):
 
 result = Factorial_func(input_string)
 print(result)
+
+
+def Factorial_recursion(num):
+    if num == 0 or num == 1:
+        return 1
+    else:
+        return num * Factorial_recursion(num - 1)
+
+result2 = Factorial_recursion(input_string)
+print(result2)
