@@ -43,3 +43,21 @@ def delete_task_by_name(task_name):
 
     except FileNotFoundError:
         print("⚠️ Task file not found.")
+        
+        
+def mark_done(task_number):
+    try:
+        with open("tasks.txt", "r") as file:
+            tasks = file.readlines()
+        if 0 < task_number <= len(tasks):
+            task_text = tasks[task_number - 1].split(" |")[0]
+            tasks[task_number - 1] = f"{task_text} | Done\n"
+            with open("tasks.txt", "w") as file:
+                file.writelines(tasks)
+            print("✅ Task marked as done!")
+        else:
+            print("❌ Invalid task number.")
+    except FileNotFoundError:
+        print("❌ tasks.txt file not found.")
+        
+        
