@@ -21,3 +21,25 @@ def read_tasks():
                     print(f"{i}. {task.strip()}")
     except FileNotFoundError:
         print("⚠️ Task file not found. Add a task first.")
+        
+def delete_task_by_name(task_name):
+    try:
+        with open("tasks.txt", "r") as file:
+            tasks = file.readlines()
+
+        task_found = False
+        for i, task in enumerate(tasks):
+            if task_name in task:
+                deleted = tasks.pop(i)
+                task_found = True
+                break
+
+        if task_found:
+            with open("tasks.txt", "w") as file:
+                file.writelines(tasks)
+            print(f"🗑️ Task deleted: {deleted.strip()}")
+        else:
+            print("❌ Task not found.")
+
+    except FileNotFoundError:
+        print("⚠️ Task file not found.")
