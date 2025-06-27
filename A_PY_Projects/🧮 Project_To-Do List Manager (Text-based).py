@@ -61,3 +61,35 @@ def mark_done(task_number):
         print("❌ tasks.txt file not found.")
         
         
+# ✅ Main menu loop (properly indented)
+while True:
+    print("\n📝 To-Do List Manager")
+    print("1. Add Task")
+    print("2. View Tasks")
+    print("3. Mark Task as Done")
+    print("4. Delete Task by Name")
+    print("5. Exit")
+
+    choice = input("Choose an option (1-5): ")
+
+    if choice == "1":
+        task = input("Enter task description: ")
+        print(add_task(task))
+
+    elif choice == "2":
+        read_tasks()
+
+    elif choice == "3":
+        num = int(input("Enter task number to mark as done: "))
+        mark_done(num)
+
+    elif choice == "4":
+        name = input("Enter task name to delete: ")
+        delete_task_by_name(name)
+
+    elif choice == "5":
+        print("👋 Exiting. Have a productive day!")
+        break
+
+    else:
+        print("❌ Invalid choice.")
