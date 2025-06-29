@@ -59,3 +59,38 @@ def delete_notes(title):
 
     except FileNotFoundError:
         print("⚠️ File not found.")
+
+# ✅ Main menu loop
+while True:
+    print("\n📇 Notes Manager")
+    print("1. Add Note")
+    print("2. View All Notes")
+    print("3. Search Notes")
+    print("4. Delete Note by Title")
+    print("5. Exit")
+
+    choice = input("Choose an option (1-5): ")
+
+    if choice == "1":
+        notes = input("Enter note content: ")
+        added_on = input("Enter added_on date (e.g. 2024-06-27): ")
+        due_date = input("Enter due_date (optional or deadline): ")
+        print(create_notes(notes, added_on, due_date))
+
+    elif choice == "2":
+        read_notes()
+
+    elif choice == "3":
+        keyword = input("Enter keyword to search: ")
+        search_notes(keyword)
+
+    elif choice == "4":
+        title = input("Enter any part of note content to delete: ")
+        delete_notes(title)
+
+    elif choice == "5":
+        print("👋 Exiting Notes Manager.")
+        break
+
+    else:
+        print("❌ Invalid choice.")
