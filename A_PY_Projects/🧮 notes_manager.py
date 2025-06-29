@@ -6,5 +6,19 @@ def create_notes(notes, added_on, due_date):
         file.write(f"{notes} | {added_on} | {due_date}\n")
     return "✅ Notes added!"
 
+def read_notes():
+    try:
+        with open("notesbook.txt", "r") as file:
+            notes_details = file.readlines()
+            if not notes_details:
+                print("📭 No notes found.")
+            else:
+                print("📇 Your Notes List:")
+                for i, line in enumerate(notes_details, start=1):
+                    notes, added_on, due_date = line.strip().split("|")
+                    print(f"{i}. Notes: {notes.strip()}, Added On: {added_on.strip()}, Due Date: {due_date.strip()}")
+    except FileNotFoundError:
+        print("⚠️ File not found. Add a note first.")
+
 
 
