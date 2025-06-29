@@ -65,5 +65,39 @@ def delete_contact_by_phone(phone):
         print("⚠️ File not found.")
 
 
+# ✅ Main menu loop
+while True:
+    print("\n📇 Contact Book")
+    print("1. Add Contact")
+    print("2. View All Contacts")
+    print("3. Search Contact")
+    print("4. Delete Contact")
+    print("5. Exit")
+
+    choice = input("Choose an option (1-5): ")
+
+    if choice == "1":
+        name = input("Enter Name: ")
+        email = input("Enter Email: ")
+        phone = input("Enter Phone: ")
+        print(create_contact_list(name, email, phone))
+
+    elif choice == "2":
+        read_contacts()
+
+    elif choice == "3":
+        keyword = input("Enter name or phone to search: ")
+        search_contact(keyword)
+
+    elif choice == "4":
+        phone = input("Enter phone number to delete: ")
+        delete_contact_by_phone(phone)
+
+    elif choice == "5":
+        print("👋 Exiting Contact Book.")
+        break
+
+    else:
+        print("❌ Invalid choice.")
 
 
