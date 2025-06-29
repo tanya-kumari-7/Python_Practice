@@ -20,5 +20,21 @@ def read_notes():
     except FileNotFoundError:
         print("⚠️ File not found. Add a note first.")
 
+def search_notes(keyword):
+    try:
+        with open("notesbook.txt", "r") as file:
+            notes_details = file.readlines()
 
+        found = False
+        for i, line in enumerate(notes_details, start=1):
+            if keyword.lower() in line.lower():
+                notes, added_on, due_date = line.strip().split("|")
+                print(f"{i}. Notes: {notes.strip()}, Added On: {added_on.strip()}, Due Date: {due_date.strip()}")
+                found = True
+
+        if not found:
+            print("🔍 No notes found with that keyword.")
+
+    except FileNotFoundError:
+        print("⚠️ File not found.")
 
