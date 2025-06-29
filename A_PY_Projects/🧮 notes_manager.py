@@ -38,3 +38,24 @@ def search_notes(keyword):
     except FileNotFoundError:
         print("⚠️ File not found.")
 
+def delete_notes(title):
+    try:
+        with open("notesbook.txt", "r") as file:
+            notes_details = file.readlines()
+
+        found = False
+        for i, line in enumerate(notes_details):
+            if title.lower() in line.lower():
+                deleted = notes_details.pop(i)
+                found = True
+                break
+
+        if found:
+            with open("notesbook.txt", "w") as file:
+                file.writelines(notes_details)
+            print(f"🗑️ Note deleted: {deleted.strip()}")
+        else:
+            print("❌ Note not found.")
+
+    except FileNotFoundError:
+        print("⚠️ File not found.")
