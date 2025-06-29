@@ -9,7 +9,6 @@ def create_contact_list(name, email, phone):
     with open("contact_list.txt", "a") as file:
         file.write(f"{name} | {email} | {phone}\n")
     return "✅ Contact added!"
-
 def read_contacts():
     try:
         with open("contact_list.txt", "r") as file:
@@ -17,10 +16,32 @@ def read_contacts():
             if not contacts:
                 print("📭 No contacts found.")
             else:
-                print("📝 Your Contacts:")
-                for i, contact in enumerate(contacts, start=1):
-                    print(f"{i}. {contact.strip()}")
+                print("📇 Your Contact List:")
+                for i, line in enumerate(contacts, start=1):
+                    name, email, phone = line.strip().split("|")
+                    print(f"{i}. Name: {name.strip()}, Email: {email.strip()}, Phone: {phone.strip()}")
     except FileNotFoundError:
-        print("⚠️ Contact list file not found. Add a contact first.")
+        print("⚠️ File not found. Add a contact first.")
+
+
+def search_contact(keyword):
+    try:
+        with open("contact_list.txt", "r") as file:
+            contacts = file.readlines()
+
+        found = False
+        for i, line in enumerate(contacts, start=1):
+            if keyword.lower() in line.lower():
+                name, email, phone = line.strip().split("|")
+                print(f"{i}. Name: {name.strip()}, Email: {email.strip()}, Phone: {phone.strip()}")
+                found = True
+
+        if not found:
+            print("🔍 No contact found with that keyword.")
+
+    except FileNotFoundError:
+        print("⚠️ File not found.")
+
+
 
 
