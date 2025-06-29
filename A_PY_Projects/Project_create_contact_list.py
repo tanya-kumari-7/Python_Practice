@@ -42,6 +42,28 @@ def search_contact(keyword):
     except FileNotFoundError:
         print("⚠️ File not found.")
 
+def delete_contact_by_phone(phone):
+    try:
+        with open("contact_list.txt", "r") as file:
+            contacts = file.readlines()
+
+        contact_found = False
+        for i, line in enumerate(contacts):
+            if phone in line:
+                deleted = contacts.pop(i)
+                contact_found = True
+                break
+
+        if contact_found:
+            with open("contact_list.txt", "w") as file:
+                file.writelines(contacts)
+            print(f"🗑️ Contact deleted: {deleted.strip()}")
+        else:
+            print("❌ Contact not found.")
+
+    except FileNotFoundError:
+        print("⚠️ File not found.")
+
 
 
 
