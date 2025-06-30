@@ -37,3 +37,26 @@ def searchbytitle(title):
 
     except FileNotFoundError:
         print("⚠️ File not found.")
+
+
+def delete_by_title(title):
+    try:
+        with open("booktracker.txt", "r") as file:
+            book_details = file.readlines()
+
+        found = False
+        for i, line in enumerate(book_details):
+            if title.lower() in line.lower():
+                deleted = book_details.pop(i)
+                found = True
+                break
+
+        if found:
+            with open("booktracker.txt", "w") as file:
+                file.writelines(book_details)
+            print(f"🗑️ title deleted: {deleted.strip()}")
+        else:
+            print("❌ title not found.")
+
+    except FileNotFoundError:
+        print("⚠️ titel not found.")
