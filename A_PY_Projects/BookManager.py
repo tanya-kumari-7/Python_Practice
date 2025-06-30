@@ -20,3 +20,20 @@ def readbook():
                     
     except FileNotFoundError:
         print("⚠️ File not found. Add a note first.") 
+
+def searchbytitle(title):
+    try:
+        with open('booktracker.txt','r') as file:
+            book_details = file.readlines()
+            
+            found = False
+            for i,line in enumerate(book_details,start=1):
+                if title.lower() in line.lower():
+                    title,author,status =  line.strip().split("|")
+                    print(f"{i}.title: {title.strip()} , author{author.strip()}, status: {status.strip()}")
+                found = True
+            if not found:
+                print("🔍 No notes found with that keyword.")
+
+    except FileNotFoundError:
+        print("⚠️ File not found.")
