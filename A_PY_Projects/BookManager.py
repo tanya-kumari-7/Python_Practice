@@ -60,3 +60,41 @@ def delete_by_title(title):
 
     except FileNotFoundError:
         print("⚠️ titel not found.")
+
+
+# ✅ Main menu loop
+while True:
+    print("\n📇 book Manager")
+    print("1. Add title")
+    print("2. View All title")
+    print("3. Search titlr")
+    print("4. Delete book title by Title")
+    print("5. Exit")
+
+    choice = input("Choose an option (1-5): ")
+
+    if choice == "1":
+        title = input("Enter note content: ")
+        author = input("Enter added_on date (e.g. 2024-06-27): ")
+        status = input("Enter due_date (optional or deadline): ")
+        print(add_book_func(title, author, status))
+
+    elif choice == "2":
+        readbook()
+
+    elif choice == "3":
+        keyword = input("Enter keyword to search: ")
+        searchbytitle(keyword)
+
+    elif choice == "4":
+        title = input("Enter any part of note content to delete: ")
+        delete_by_title(title)
+
+    elif choice == "5":
+        print("👋 Exiting Notes Manager.")
+        break
+
+    else:
+        print("❌ Invalid choice.")
+
+        
