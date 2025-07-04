@@ -35,21 +35,29 @@ if uploaded_file:
         cat_cols = [col for col in cat_cols if col in df.columns]
         df = pd.get_dummies(df, columns=cat_cols, drop_first=True)
 
-        st.subheader("🎯 Filing Prediction with AI")
+        st.subheader("🎯 AI-Based Filing Forecast")
         target = "filed"
         drop_cols = ["user_id", "FY_Year", "first_filing_date", "last_filing_date", "user_create_date", "payment_date", "filed"]
         features = df.drop(columns=[col for col in drop_cols if col in df.columns])
-        X_train, X_test, y_train, y_test = train_test_split(features, df[target], test_size=0.2, random_state=42)
 
-        # Ensure numeric input only
-        X_train = X_train.select_dtypes(include=['number'])
-        X_test = X_test.select_dtypes(include=['number'])
+        # Ensure numeric only
+        features = features.select_dtypes(include=['number'])
+        labels = df[target]
+
+        X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
 
         model = RandomForestClassifier(n_estimators=100, random_state=42)
         model.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
 
-        st.text("Classification Report:")
+        y_pred = model.predict(X_test)
+        y_proba = model.predict_proba(X_test)[:, 1]
+        full_proba = model.predict_proba(features)[:, 1]
+
+        estimated_filers = int(full_proba.sum())
+
+        st.markdown(f"🔮 **Estimated users likely to file in future:** `{estimated_filers}` out of `{len(df)}`")
+
+        st.text("\n📋 Classification Report")
         st.text(classification_report(y_test, y_pred))
 
         # Feature importances
@@ -61,6 +69,6 @@ if uploaded_file:
 
         st.bar_chart(importance_df.set_index("Feature"))
 
-        st.info("Analysis complete using all available columns. Results above show the most influential features for filing prediction.")
+        st.success("AI prediction completed using all available data. Key drivers are visualized above.")
 else:
     st.info("Please upload a CSV file to start the analysis.")
