@@ -23,19 +23,27 @@ if uploaded_file:
         df['filed'] = df['first_filing_date'].notna().astype(int)
         df['gender'] = df['gender'].astype(str)
         df['Age_bucket'] = df['Age_bucket'].astype(str)
-        df['Plan_selected'] = df['Plan_selected'].map({'Yes': 1, 'No': 0})
-        df['journey_started_after_login'] = df['journey_started_after_login'].map({'Yes': 1, 'No': 0})
-        df['payment_status'] = df['payment_status'].map({'Success': 1, 'Failed': 0, 'Fail': 0})
+        if 'Plan_selected' in df.columns:
+            df['Plan_selected'] = df['Plan_selected'].map({'Yes': 1, 'No': 0})
+        if 'journey_started_after_login' in df.columns:
+            df['journey_started_after_login'] = df['journey_started_after_login'].map({'Yes': 1, 'No': 0})
+        if 'payment_status' in df.columns:
+            df['payment_status'] = df['payment_status'].map({'Success': 1, 'Failed': 0, 'Fail': 0})
 
-        # Safe one-hot encoding (ignore missing columns)
-        categorical_cols = ["gender", "Age_bucket", "plan", "state", "partner", "filing_mode", "user_type", "income_band"]
-        existing_cols = [col for col in categorical_cols if col in df.columns]
-        df = pd.get_dummies(df, columns=existing_cols, drop_first=True)
+        # Encode categorical (only existing columns)
+        cat_cols = ["gender", "Age_bucket", "plan", "state", "partner", "filing_mode", "user_type", "income_band"]
+        cat_cols = [col for col in cat_cols if col in df.columns]
+        df = pd.get_dummies(df, columns=cat_cols, drop_first=True)
 
         st.subheader("🎯 Filing Prediction with AI")
         target = "filed"
-        features = df.drop(columns=[col for col in ["user_id", "FY_Year", "first_filing_date", "last_filing_date", "user_create_date", "payment_date", "filed"] if col in df.columns])
+        drop_cols = ["user_id", "FY_Year", "first_filing_date", "last_filing_date", "user_create_date", "payment_date", "filed"]
+        features = df.drop(columns=[col for col in drop_cols if col in df.columns])
         X_train, X_test, y_train, y_test = train_test_split(features, df[target], test_size=0.2, random_state=42)
+
+        # Ensure numeric input only
+        X_train = X_train.select_dtypes(include=['number'])
+        X_test = X_test.select_dtypes(include=['number'])
 
         model = RandomForestClassifier(n_estimators=100, random_state=42)
         model.fit(X_train, y_train)
@@ -47,7 +55,7 @@ if uploaded_file:
         # Feature importances
         st.subheader("📊 Feature Importance")
         importance_df = pd.DataFrame({
-            "Feature": features.columns,
+            "Feature": X_train.columns,
             "Importance": model.feature_importances_
         }).sort_values("Importance", ascending=False).head(15)
 
@@ -56,4 +64,3 @@ if uploaded_file:
         st.info("Analysis complete using all available columns. Results above show the most influential features for filing prediction.")
 else:
     st.info("Please upload a CSV file to start the analysis.")
-
