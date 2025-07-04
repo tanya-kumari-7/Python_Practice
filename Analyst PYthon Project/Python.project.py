@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from datetime import datetime
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 
 st.set_page_config(page_title="ITR Filing Dashboard", layout="wide")
 
@@ -14,81 +17,43 @@ if uploaded_file:
     except Exception as e:
         st.error(f"Failed to read CSV file: {e}")
     else:
-        required_columns = [
-            "user_id", "FY_Year", "journey_started_after_login", "Plan_selected",
-            "payment_status", "first_filing_date", "last_filing_date",
-            "gender", "Age_bucket"
-        ]
+        st.success("File uploaded successfully")
 
-        missing_cols = [col for col in required_columns if col not in df.columns]
-        if missing_cols:
-            st.error(f"The following required columns are missing in your file: {', '.join(missing_cols)}")
-        else:
-            st.sidebar.header("🔍 Filters")
-            fy_filter = st.sidebar.selectbox("Filter by FY Year", options=["All"] + sorted(df["FY_Year"].dropna().unique().tolist()))
-            if fy_filter != "All":
-                df = df[df["FY_Year"] == fy_filter]
+        # Clean & prepare
+        df['filed'] = df['first_filing_date'].notna().astype(int)
+        df['gender'] = df['gender'].astype(str)
+        df['Age_bucket'] = df['Age_bucket'].astype(str)
+        df['Plan_selected'] = df['Plan_selected'].map({'Yes': 1, 'No': 0})
+        df['journey_started_after_login'] = df['journey_started_after_login'].map({'Yes': 1, 'No': 0})
+        df['payment_status'] = df['payment_status'].map({'Success': 1, 'Failed': 0, 'Fail': 0})
 
-            st.subheader("1️⃣ User Overview")
-            total_users = df["user_id"].nunique()
-            repeat_users = df[df["user_id"].duplicated(keep=False)]
-            new_users = df.drop_duplicates("user_id", keep="first")
+        # Safe one-hot encoding (ignore missing columns)
+        categorical_cols = ["gender", "Age_bucket", "plan", "state", "partner", "filing_mode", "user_type", "income_band"]
+        existing_cols = [col for col in categorical_cols if col in df.columns]
+        df = pd.get_dummies(df, columns=existing_cols, drop_first=True)
 
-            col1, col2, col3 = st.columns(3)
-            col1.metric("Total Unique Users", total_users)
-            col2.metric("Repeat Users", repeat_users["user_id"].nunique())
-            col3.metric("New Users", new_users["user_id"].nunique())
+        st.subheader("🎯 Filing Prediction with AI")
+        target = "filed"
+        features = df.drop(columns=[col for col in ["user_id", "FY_Year", "first_filing_date", "last_filing_date", "user_create_date", "payment_date", "filed"] if col in df.columns])
+        X_train, X_test, y_train, y_test = train_test_split(features, df[target], test_size=0.2, random_state=42)
 
-            fig = px.pie(names=["Repeat", "New"], values=[repeat_users["user_id"].nunique(), new_users["user_id"].nunique()], title="User Types")
-            st.plotly_chart(fig)
+        model = RandomForestClassifier(n_estimators=100, random_state=42)
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
 
-            st.subheader("1️⃣.a Gender & Age Distribution")
-            gender_counts = df['gender'].value_counts()
-            age_counts = df['Age_bucket'].value_counts()
-            col1, col2 = st.columns(2)
-            with col1:
-                st.plotly_chart(px.pie(names=gender_counts.index, values=gender_counts.values, title="Gender Distribution"))
-            with col2:
-                st.plotly_chart(px.pie(names=age_counts.index, values=age_counts.values, title="Age Bucket Distribution"))
+        st.text("Classification Report:")
+        st.text(classification_report(y_test, y_pred))
 
-            st.subheader("2️⃣ Funnel Analysis")
-            funnel = {
-                "Journey Started": df[df["journey_started_after_login"] == "Yes"].shape[0],
-                "Plan Selected": df[df["Plan_selected"] == "Yes"].shape[0],
-                "Payment Success": df[df["payment_status"] == "Success"].shape[0],
-                "Filed": df[df["first_filing_date"].notna()].shape[0],
-            }
-            funnel_df = pd.DataFrame(list(funnel.items()), columns=["Stage", "Count"])
-            st.bar_chart(funnel_df.set_index("Stage"))
+        # Feature importances
+        st.subheader("📊 Feature Importance")
+        importance_df = pd.DataFrame({
+            "Feature": features.columns,
+            "Importance": model.feature_importances_
+        }).sort_values("Importance", ascending=False).head(15)
 
-            st.subheader("3️⃣ Drop-Off Analysis")
-            total = len(df)
-            journey_no = df[df["journey_started_after_login"] != "Yes"].shape[0]
-            plan_no = df[(df["journey_started_after_login"] == "Yes") & (df["Plan_selected"] != "Yes")].shape[0]
-            pay_no = df[(df["Plan_selected"] == "Yes") & (df["payment_status"] != "Success")].shape[0]
-            filed_no = df[(df["payment_status"] == "Success") & (df["first_filing_date"].isna())].shape[0]
+        st.bar_chart(importance_df.set_index("Feature"))
 
-            drop_data = pd.DataFrame({
-                "Stage": ["No Journey", "No Plan Selected", "Payment Failed", "Did Not File"],
-                "Users": [journey_no, plan_no, pay_no, filed_no]
-            })
-            st.bar_chart(drop_data.set_index("Stage"))
-
-            st.subheader("4️⃣ Filing Forecast (Simple Avg)")
-            df['last_filing_year'] = pd.to_datetime(df['last_filing_date'], errors='coerce').dt.year
-            filing_trend = df.groupby('last_filing_year')["user_id"].nunique()
-            if not filing_trend.empty:
-                forecast = int(filing_trend.mean())
-                st.write(f"📌 Projected filings (based on average): **{forecast}**")
-                st.line_chart(filing_trend)
-            else:
-                st.info("No filing data available to forecast.")
-
-            st.subheader("5️⃣ Actionable Users")
-            actionable = df[(df["payment_status"] == "Success") & (df["first_filing_date"].isna())]
-            st.write("🎯 Users who paid but haven't filed:")
-            st.dataframe(actionable[["user_id", "payment_date", "plan", "plan_price", "partner", "state"]].drop_duplicates("user_id").head(20))
-            csv = actionable.to_csv(index=False)
-            st.download_button("📥 Download Actionable Users", csv, "actionable_users.csv", "text/csv")
+        st.info("Analysis complete using all available columns. Results above show the most influential features for filing prediction.")
 else:
     st.info("Please upload a CSV file to start the analysis.")
+
