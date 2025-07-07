@@ -27,3 +27,6 @@ def view_to_do_book():
                 print(f"{i}. Notes: {Notes.strip()}, status: {status.strip()}, notes_due_date: {notes_due_date.strip()}, notes_added_on: {notes_added_on.strip()}")
     except Exception as a:
         print("check error",a) 
+
+
+print(view_to_do_book())
