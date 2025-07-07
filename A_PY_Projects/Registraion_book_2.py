@@ -28,7 +28,7 @@ def create_to_do(Notes,status,notes_due_date,notes_added_on):
         except Exception as a:
             print("check error",a) 
 
-    print(view_to_do_book())
+# print(view_to_do_book())
 
 def update_to_do(index, Notes, status, notes_due_date, notes_added_on):
     try:
@@ -48,7 +48,7 @@ def update_to_do(index, Notes, status, notes_due_date, notes_added_on):
         return f"Error: {e}"
     
 # Example usage:
-print(update_to_do(1, "Call maa", "not need to call", "2025-08-08", "2025-07-07"))
+#print(update_to_do(1, "Call maa", "not need to call", "2025-08-08", "2025-07-07"))
 
 
 def delete_to_do(index):
@@ -69,7 +69,7 @@ def delete_to_do(index):
         return f"Error: {e}"
     
 # Example usage:
-print(delete_to_do(3))
+#print(delete_to_do(3))
 
 
 def search_to_do(search_term):
@@ -90,7 +90,7 @@ def search_to_do(search_term):
         return f"Error: {e}"
 
 # Example usage:
-print(search_to_do("Call maa"))  # Replace "Call maa" with your search term
+#print(search_to_do("Call maa"))  # Replace "Call maa" with your search term
 
 
 def delete_duplicate_notes():
@@ -108,6 +108,53 @@ def delete_duplicate_notes():
         return f"Error: {e}"
     
 # Example usage:
-print(delete_duplicate_notes())  # Deletes duplicate notes from the to-do book
+#print(delete_duplicate_notes())  # Deletes duplicate notes from the to-do book
 
 
+
+# ✅ Main menu loop
+while True:
+    print("\n📇 Notes Manager")
+    print("1. Create Notes")
+    print("2. View Notes")
+    print("3. Update Notes")
+    print("4. Delete Notes")
+    print("5. Search Notes")
+    print("6. Delete Duplicate Notes")
+    print("7. Exit")
+    choice = input("Enter your choice (1-7): ")
+    if choice == "1":
+        Notes = input("Enter Notes: ")
+        status = input("Enter status: ")
+        notes_due_date = input("Enter notes due date: ")
+        notes_added_on = input("Enter notes added on: ")
+        print(create_to_do(Notes, status, notes_due_date, notes_added_on))
+    
+    elif choice == "2":
+        view_to_do_book()
+    
+    elif choice == "3":
+        index = int(input("Enter the index of the note to update: "))
+        Notes = input("Enter new Notes: ")
+        status = input("Enter new status: ")
+        notes_due_date = input("Enter new notes due date: ")
+        notes_added_on = input("Enter new notes added on: ")
+        print(update_to_do(index, Notes, status, notes_due_date, notes_added_on))
+    
+    elif choice == "4":
+        index = int(input("Enter the index of the note to delete: "))
+        print(delete_to_do(index))
+    
+    elif choice == "5":
+        search_term = input("Enter search term: ")
+        print(search_to_do(search_term))
+    
+    elif choice == "6":
+        print(delete_duplicate_notes())
+    
+    elif choice == "7":
+        print("Exiting Notes Manager. Goodbye!")
+        break
+    
+    else:
+        print("Invalid choice. Please try again.")  
