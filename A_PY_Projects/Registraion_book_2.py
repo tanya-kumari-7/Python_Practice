@@ -14,21 +14,21 @@ def create_to_do(Notes,status,notes_due_date,notes_added_on):
     
 ## print(create_to_do("Call maa", "Pending", "2025-08-08", "2025-07-07"))
 
-def view_to_do_book():
-    try:
-        with open("to_do_book.txt","r") as file:
-            book_content = file.readlines()
-            
-            if not book_content:
-                print("No Content Found, Please add your notes to view")
-            
-            for i , line in enumerate(book_content,start=1):
-                Notes,status,notes_due_date,notes_added_on = line.strip().split("|")
-                print(f"{i}. Notes: {Notes.strip()}, status: {status.strip()}, notes_due_date: {notes_due_date.strip()}, notes_added_on: {notes_added_on.strip()}")
-    except Exception as a:
-        print("check error",a) 
+    def view_to_do_book():
+        try:
+            with open("to_do_book.txt","r") as file:
+                book_content = file.readlines()
+                
+                if not book_content:
+                    print("No Content Found, Please add your notes to view")
+                
+                for i , line in enumerate(book_content,start=1):
+                    Notes,status,notes_due_date,notes_added_on = line.strip().split("|")
+                    print(f"{i}. Notes: {Notes.strip()}, status: {status.strip()}, notes_due_date: {notes_due_date.strip()}, notes_added_on: {notes_added_on.strip()}")
+        except Exception as a:
+            print("check error",a) 
 
-print(view_to_do_book())
+    print(view_to_do_book())
 
 def update_to_do(index, Notes, status, notes_due_date, notes_added_on):
     try:
@@ -51,6 +51,25 @@ def update_to_do(index, Notes, status, notes_due_date, notes_added_on):
 print(update_to_do(1, "Call maa", "not need to call", "2025-08-08", "2025-07-07"))
 
 
-with open("to_do_book.txt", "r") as file:
-    content = file.read().strip()
-    print(content)
+def delete_to_do(index):
+    try:
+        with open("to_do_book.txt", "r") as file:
+            lines = file.readlines()
+        
+        if index < 1 or index > len(lines):
+            return "Invalid index"
+        
+        del lines[index-1]
+        
+        with open("to_do_book.txt", "w") as file:
+            file.writelines(lines)
+    
+        return "Notes Deleted Successfully"
+    except Exception as e:
+        return f"Error: {e}"
+    
+# Example usage:
+print(delete_to_do(3))
+
+
+
