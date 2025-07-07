@@ -28,5 +28,29 @@ def view_to_do_book():
     except Exception as a:
         print("check error",a) 
 
-
 print(view_to_do_book())
+
+def update_to_do(index, Notes, status, notes_due_date, notes_added_on):
+    try:
+        with open("to_do_book.txt", "r") as file:
+            lines = file.readlines()
+        
+        if index < 1 or index > len(lines):
+            return "Invalid index"
+        
+        lines[index-1] = f"{Notes} | {status} | {notes_due_date} | {notes_added_on}\n"
+        
+        with open("to_do_book.txt", "w") as file:
+            file.writelines(lines)
+    
+        return "Notes Updated Successfully"
+    except Exception as e:
+        return f"Error: {e}"
+    
+# Example usage:
+print(update_to_do(1, "Call maa", "not need to call", "2025-08-08", "2025-07-07"))
+
+
+with open("to_do_book.txt", "r") as file:
+    content = file.read().strip()
+    print(content)
