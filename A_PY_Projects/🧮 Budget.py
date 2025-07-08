@@ -20,3 +20,22 @@ with open("monthly_income_book.txt", "r") as file:
 # Step 2: Delete content
 # with open("monthly_income_book.txt", "w") as file:
 #     pass  # This clears the file
+
+
+
+def expenses_book(month,description,amount):
+    if not month or not description or not amount:
+        return ("Fill complete the details: month,description,and amount")
+    with open("expensebook.txt",'a') as file:
+        file.write(f'{month.strip()} | {description.strip()} | {amount.strip()}\n')
+        print("Expenses Added")
+        
+print(expenses_book("03-04-2025","21000", "MF investment"))
+
+with open("expensebook.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+
+      
+        
