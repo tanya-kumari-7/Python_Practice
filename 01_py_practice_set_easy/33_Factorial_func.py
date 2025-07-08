@@ -11,6 +11,8 @@ def Factorial_func(num):
     for x in range(1,num+1):
         num1= num1 * x
     return num1
+
+
         
         
   
