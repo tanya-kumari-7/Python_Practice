@@ -10,3 +10,13 @@ def add_income_details(month,income,incomefrom):
         print("Error found",e)
         
 # print(add_income_details("01-04-2025","100000", "salary"))
+
+
+# Step 1: Read and print content
+with open("monthly_income_book.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+# Step 2: Delete content
+# with open("monthly_income_book.txt", "w") as file:
+#     pass  # This clears the file
