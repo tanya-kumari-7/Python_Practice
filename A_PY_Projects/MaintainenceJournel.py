@@ -17,7 +17,6 @@ def create_maintenance_journal_entry(category, description, amount, added_on=Non
 
 
 
-
 # Example call
 # create_maintenance_journal_entry("Plumbing", "Fixed leaky faucet", 50)
 
@@ -25,3 +24,19 @@ def create_maintenance_journal_entry(category, description, amount, added_on=Non
 # with open("maintenance_journal.txt", "r") as file:
 #     print(file.read())
 
+def read_maintenance_journal():
+    try:
+        with open("maintenance_journal.txt", "r") as file:
+            entries = file.readlines()
+            if not entries:
+                print("📭 No maintenance journal entries found.")
+            else:
+                print("📝 Maintenance Journal Entries:")
+                for i, entry in enumerate(entries, start=1):
+                    print(f"{i}. {entry.strip()}")
+    except FileNotFoundError:
+        print("⚠️ Maintenance journal file not found. Add an entry first.")
+
+
+# read = read_maintenance_journal()
+# print(read)
