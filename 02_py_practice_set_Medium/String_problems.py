@@ -10,5 +10,16 @@ def func_reverse_string(x):
 func_call = func_reverse_string(string)
 print(func_call)
 
+## Check if a string is a palindrome   
+
+def func_palindrome_check(x):
+    if x == x[::-1]:
+        return f'{x}: is a palindrome'
+    else:
+        return f'{x}: is not a palindrome'
+    
+func_call = func_palindrome_check(string)
+print(func_call)
+
     
     
