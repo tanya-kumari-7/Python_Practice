@@ -1,6 +1,7 @@
 ## Create a Maintenance Journal Entry
 from datetime import datetime
 
+
 def create_maintenance_journal_entry(category, description, amount, added_on=None):
     if not category or not description or not amount:
         print("All fields are required to add a task.")
@@ -36,7 +37,6 @@ def read_maintenance_journal():
     except FileNotFoundError:
         print("Maintenance journal file not found. Add an entry first.")
 
-from datetime import datetime
 
 def get_month_exp():
     monthly_exp = {}
@@ -59,7 +59,7 @@ def get_month_exp():
         return monthly_exp
 
 
-def get_monthly_exp_by_category():
+def get_exp_by_category():
     with open("maintenance_journal.txt", "r") as file:
         exp_by_category = {}
         data = file.readlines()
@@ -77,10 +77,39 @@ def get_monthly_exp_by_category():
                 continue
         return exp_by_category
     
+def get_monthly_exp_by_category():
+    monthly_exp_by_category = {}
+    with open ("maintenance_journal.txt", "r") as file:
+        data = file.readlines()
+        if not data:
+            print("Data Not found")
+            return
+        else:
+            for i , content in enumerate(data,start=1):
+                category, description, amount, added_on = content.strip().split("|")
+                dt = datetime.strptime(added_on.strip(), "%Y-%m-%d %H:%M:%S") if " " in added_on else datetime.strptime(added_on.strip(), "%Y-%m-%d")
+                added_on_formatted = dt.strftime("%d-%m-%Y")
+                month = dt.strftime("%Y-%m")
+                amount = int(amount.strip())
+                category = category.strip()
+
+                key = (month,category)
+
+                if key in monthly_exp_by_category:
+                    monthly_exp_by_category[key] += amount
+                else:
+                    monthly_exp_by_category[key] = amount
+                continue
+        return monthly_exp_by_category
+    
+# def delete_data_from_txt_file():
+#     with open("maintenance_journal.txt", "w") as file:
+#         file.write("")
 
 
 
-
+        
+################ Create a menu
 
 
    
