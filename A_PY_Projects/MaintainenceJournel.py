@@ -36,6 +36,8 @@ def read_maintenance_journal():
     except FileNotFoundError:
         print("Maintenance journal file not found. Add an entry first.")
 
+from datetime import datetime
+
 def get_month_exp():
     monthly_exp = {}
     with open("maintenance_journal.txt", "r") as file:
@@ -44,16 +46,18 @@ def get_month_exp():
             print("Data Not Found")
             return
         else:
-            for i , content in enumerate(data,start=1):
+            for i, content in enumerate(data, start=1):
                 category, description, amount, added_on = content.strip().split("|")
-                month = datetime.strptime(added_on.strip(), "%Y-%m-%d").strftime("%Y-%m")
+                dt = datetime.strptime(added_on.strip(), "%Y-%m-%d %H:%M:%S") if " " in added_on else datetime.strptime(added_on.strip(), "%Y-%m-%d")
+                added_on_formatted = dt.strftime("%d-%m-%Y")
+                month = dt.strftime("%Y-%m")
                 amount = int(amount.strip())
                 if month in monthly_exp:
                     monthly_exp[month] += amount
                 else:
                     monthly_exp[month] = amount
-                continue
         return monthly_exp
+
 
 
        
