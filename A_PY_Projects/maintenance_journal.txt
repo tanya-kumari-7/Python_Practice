@@ -3,3 +3,4 @@ Shopping | Cloth | 5000 |2025-07-30 15:25:14
 Travel | travelling Exp | 6000 |2025-07-30 15:26:54
 Travel | travelling Exp | 6000 |2025-06-28
 Shopping | Home Exp | 6000 |2025-06-28
+Shopping | Home Exp | 6000 |2025-09-28

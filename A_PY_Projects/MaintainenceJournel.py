@@ -17,9 +17,9 @@ def create_maintenance_journal_entry(category, description, amount, added_on=Non
 
 
 # Example call
-# create_maintenance_journal_entry("Shopping", "Home Exp", 6000,"2025-06-28")
+#create_maintenance_journal_entry("Shopping", "Home Exp", 6000,"2025-09-28")
 
-# Read the maintenance journal entries
+# # Read the maintenance journal entries
 # with open("maintenance_journal.txt", "r") as file:
 #     print(file.read())
 
@@ -28,11 +28,39 @@ def read_maintenance_journal():
         with open("maintenance_journal.txt", "r") as file:
             entries = file.readlines()
             if not entries:
-                print("📭 No maintenance journal entries found.")
+                print("No maintenance journal entries found.")
             else:
-                print("📝 Maintenance Journal Entries:")
+                print("Maintenance Journal Entries:")
                 for i, entry in enumerate(entries, start=1):
                     print(f"{i}. {entry.strip()}")
     except FileNotFoundError:
-        print("⚠️ Maintenance journal file not found. Add an entry first.")
+        print("Maintenance journal file not found. Add an entry first.")
+
+def get_month_exp():
+    monthly_exp = {}
+    with open("maintenance_journal.txt", "r") as file:
+        data = file.readlines()
+        if not data:
+            print("Data Not Found")
+            return
+        else:
+            for i , content in enumerate(data,start=1):
+                category, description, amount, added_on = content.strip().split("|")
+                month = datetime.strptime(added_on.strip(), "%Y-%m-%d").strftime("%Y-%m")
+                amount = int(amount.strip())
+                if month in monthly_exp:
+                    monthly_exp[month] += amount
+                else:
+                    monthly_exp[month] = amount
+                continue
+        return monthly_exp
+
+
+       
+
+get_month_exp()
+
+
+
+
 
