@@ -59,18 +59,34 @@ def get_month_exp():
         return monthly_exp
 
 
+def get_monthly_exp_by_category():
+    with open("maintenance_journal.txt", "r") as file:
+        exp_by_category = {}
+        data = file.readlines()
+        if not data:
+            print("No Data Found")
+            return
+        else:
+            for i , content in enumerate(data ,start=1):
+                category, description, amount, added_on = content.strip().split("|")
+                exp_amount = int(amount)
+                if category in exp_by_category:
+                    exp_by_category[category] += exp_amount
+                else:
+                    exp_by_category[category] = exp_amount
+                continue
+        return exp_by_category
+    
 
-       
-
-get_month_exp()
 
 
 
 
 
-<<<<<<< HEAD
-# read = read_maintenance_journal()
-# print(read)
+   
 
-=======
->>>>>>> 78491741d9202ab08cfffee17581be80c19d22da
+
+
+
+
+
