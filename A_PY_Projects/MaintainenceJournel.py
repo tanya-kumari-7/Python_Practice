@@ -38,7 +38,7 @@ def read_maintenance_journal():
         print("Maintenance journal file not found. Add an entry first.")
 
 
-def get_month_exp():
+def get_monthly_exp():
     monthly_exp = {}
     with open("maintenance_journal.txt", "r") as file:
         data = file.readlines()
@@ -110,7 +110,8 @@ def get_monthly_exp_by_category():
 
         
 ################ Create a menu
-
+1
+    
 
    
 
