@@ -12,7 +12,6 @@ def create_maintenance_journal_entry(category, description, amount, added_on=Non
     with open("maintenance_journal.txt", "a") as file:
         entry = f"{category} | {description} | {amount} |{added_on}\n"
         file.write(entry)
-    
     print("Maintenance journal entry added successfully.")
 
 
@@ -21,8 +20,8 @@ def create_maintenance_journal_entry(category, description, amount, added_on=Non
 # create_maintenance_journal_entry("Shopping", "Home Exp", 6000,"2025-06-28")
 
 # Read the maintenance journal entries
-with open("maintenance_journal.txt", "r") as file:
-    print(file.read())
+# with open("maintenance_journal.txt", "r") as file:
+#     print(file.read())
 
 def read_maintenance_journal():
     try:
@@ -37,6 +36,3 @@ def read_maintenance_journal():
     except FileNotFoundError:
         print("⚠️ Maintenance journal file not found. Add an entry first.")
 
-
-# read = read_maintenance_journal()
-# print(read)
