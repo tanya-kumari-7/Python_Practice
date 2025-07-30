@@ -13,16 +13,16 @@ def create_maintenance_journal_entry(category, description, amount, added_on=Non
         entry = f"{category} | {description} | {amount} |{added_on}\n"
         file.write(entry)
     
-    print("✅ Maintenance journal entry added successfully.")
+    print("Maintenance journal entry added successfully.")
 
 
 
 # Example call
-# create_maintenance_journal_entry("Plumbing", "Fixed leaky faucet", 50)
+# create_maintenance_journal_entry("Shopping", "Home Exp", 6000,"2025-06-28")
 
 # Read the maintenance journal entries
-# with open("maintenance_journal.txt", "r") as file:
-#     print(file.read())
+with open("maintenance_journal.txt", "r") as file:
+    print(file.read())
 
 def read_maintenance_journal():
     try:
