@@ -56,4 +56,17 @@ def remove_duplicate_from_string_func(x):
     return final_str
 
 print(remove_duplicate_from_string_func(string))
-    
+
+
+### %% Find the most frequent character in a string
+  
+def func_frequent_character(x):
+    di = {}
+    for i in x:
+        di[i] = di.get(i, 0) + 1
+    max_char = max(di, key=di.get)
+    return max_char
+
+# Example usage
+
+print(func_frequent_character("sssonam"))  
