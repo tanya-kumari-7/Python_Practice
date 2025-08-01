@@ -23,17 +23,20 @@ print(func_call)
 
 
 ## Count vowels/consonants
-
-def func_vowels_consonants_count (x):
+def func_vowels_consonants_count(x):
     vowels = []
     consonants = []
 
-    for i in x :
-        if i in ('a','e','i','o','u'):
-            vowels.append(i)
-        
-            
+    for i in x.lower():
+        if i.isalpha():
+            if i.lower() in ('a', 'e', 'i', 'o', 'u'):
+                vowels.append(i)
+            else:
+                consonants.append(i)
+    
+    return f"There are {len(vowels)} vowels and {len(consonants)} consonants in '{x}'"
+
+# Example usage
+print(func_vowels_consonants_count("nitin"))
 
 
-    
-    
