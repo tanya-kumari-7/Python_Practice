@@ -39,4 +39,21 @@ def func_vowels_consonants_count(x):
 # Example usage
 print(func_vowels_consonants_count("nitin"))
 
+## Remove duplicates from a string
 
+string = 'sonanm'
+def remove_duplicate_from_string_func(x):
+    c = []
+    final_str = ''
+    for i in x:
+        if i not in c:
+            c.append(i)
+            final_str += "".join(i)
+        else:
+            continue
+    
+
+    return final_str
+
+remove_duplicate_from_string_func(string)
+    
