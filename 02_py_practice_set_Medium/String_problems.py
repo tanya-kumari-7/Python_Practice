@@ -55,5 +55,5 @@ def remove_duplicate_from_string_func(x):
 
     return final_str
 
-remove_duplicate_from_string_func(string)
+print(remove_duplicate_from_string_func(string))
     
