@@ -21,5 +21,19 @@ def func_palindrome_check(x):
 func_call = func_palindrome_check(string)
 print(func_call)
 
+
+## Count vowels/consonants
+
+def func_vowels_consonants_count (x):
+    vowels = []
+    consonants = []
+
+    for i in x :
+        if i in ('a','e','i','o','u'):
+            vowels.append(i)
+        
+            
+
+
     
     
