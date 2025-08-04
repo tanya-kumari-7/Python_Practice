@@ -65,8 +65,8 @@ def func_frequent_character(x):
     for i in x:
         di[i] = di.get(i, 0) + 1
     max_char = max(di, key=di.get)
-    return max_char
+    
+    return max_char,di[max_char]
 
 # Example usage
-
 print(func_frequent_character("sssonam"))  
