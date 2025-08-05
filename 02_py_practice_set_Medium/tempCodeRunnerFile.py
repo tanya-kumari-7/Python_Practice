@@ -1,17 +1,15 @@
-## Anagram check between two strings
+## First non-repeating character
 
 
-def Anagram_check_func(x,y):
-    if len(x) != len(y):
-        print(f"{x} and {y} are not a anagram")
-        return
-    elif len(x) == len(y) and sorted(x) == sorted(y):
-        print(f"{x} and {y} are  a anagram")
-        return
-    else:
-        print(f"{x} and {y} are not a anagram")
-        return
-
-
-   
-print(Anagram_check_func("sonam","snoa"))  
+def no_reoeat_char_func(x):
+    container = {}
+    for i in x:
+        if i not in container:
+            container[i] = 1
+        else:
+            container[i] += 1
+    for i in x:
+        if container[i] == 1:
+            return i
+ 
+print(no_reoeat_char_func("ssnoam"))  
