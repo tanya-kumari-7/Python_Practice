@@ -5,7 +5,7 @@ def number_guessing_game():
     print("I'm thinking of a number between 1 and 100...")
 
 
-    number_to_guess = random.randint(1, 1000)
+    number_to_guess = random.randint(1, 100)
     attempts = 0
     Game_number = []
     user_number = []
@@ -19,6 +19,10 @@ def number_guessing_game():
         if not guess.isdigit():
             print("Please enter a valid number")
             continue
+        if int(guess) > 100:
+            print("Please enter number between 1 to 100")
+            continue
+
 
         guess = int(guess)
         attempts += 1
@@ -29,8 +33,11 @@ def number_guessing_game():
             print("Too high! Try again.")
         else:
             print(f"Correct! You guessed the number in {attempts} tries.")
-            print(f"{Game_number} The list of Game Number")
+            print(f"{Game_number} Game Number")
             print(f"{user_number} The list of Your Number")
             break
+
+        if abs(guess - number_to_guess) <= 10:
+            print("You're very close! Within 10 numbers.")
 
 number_guessing_game()
