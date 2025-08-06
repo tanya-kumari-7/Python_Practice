@@ -1,15 +1,17 @@
-## First non-repeating character
+## Compress a string (without run-length encoding)
 
 
-def no_reoeat_char_func(x):
-    container = {}
-    for i in x:
-        if i not in container:
-            container[i] = 1
-        else:
-            container[i] += 1
-    for i in x:
-        if container[i] == 1:
-            return i
- 
-print(no_reoeat_char_func("ssnoam"))  
+def compress_string_func(x):
+    dic_box = {}
+    for i  in x :
+        if i not in dic_box:
+            dic_box[i] = 1
+        else :
+            dic_box[i] += 1
+    result = ''
+    for a,b in dic_box.items():
+        result += a+str(b)
+
+    return result
+
+print(compress_string_func('sssoonnaammm'))
