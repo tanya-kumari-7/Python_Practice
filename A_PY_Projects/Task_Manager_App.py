@@ -34,7 +34,7 @@ def Add_task_func(Date, Task, due_date, task_status, task_completed_on):
 
 
 # Example task addition
-Add_task_func("12-01-2025", "Call Maa", "12-01-2025", "Pending", "Null")
+Add_task_func("14-03-2025", "Home Work to do", "14-03-2025", "Pending", "Null")
 
 # Read File Data
 # with open("task_book.txt", "r") as file:
