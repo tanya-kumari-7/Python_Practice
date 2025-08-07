@@ -43,14 +43,30 @@ def view_task():
         return   
 view_task()
 
-def mark_task_done_func():
-    with open()
+def mark_task_done_by_task_func(input_task,status_to_be_updated,task_completed_on_to_be_updated):
+    with open("task_book.txt", 'r') as file:
+        file_detail = file.readlines()
 
-# Read File Data
-# with open("task_book.txt", "r") as file:
-#     content = file.read()
-#     print(content)
+        updated_lines = []
+        task_found = False
 
-# To delete file content, uncomment below:
-# with open("task_book.txt", "w") as file:
-#     pass
+        for line,content in enumerate(file_detail,start=1):
+            Date, Task, due_date, task_status, task_completed_on = content.strip().split("|")
+            if input_task.strip() == Task.strip():
+                task_status = status_to_be_updated
+                task_completed_on_to_be_updated.strip() == task_completed_on
+                task_found = True
+
+        updated_line = "|".join([Date, Task, due_date, task_status, task_completed_on])
+        updated_lines.append(updated_line + "\n")
+
+        with open("task_book.txt", 'w') as file:
+            file.writelines(updated_lines)
+            if task_found:
+                print(f"{input_task}' updated successfully.")
+            else:
+                print(f"'{input_task}' not found.")
+                  
+
+
+ 
