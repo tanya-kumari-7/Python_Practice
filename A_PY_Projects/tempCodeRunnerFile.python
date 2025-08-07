@@ -18,9 +18,6 @@ def initialize_file_with_header():
         with open("task_book.txt", 'w') as file:
             file.write(header)
 
-# Initialize header if needed
-# initialize_file_with_header()
-
 def Add_task_func(Date, Task, due_date, task_status, task_completed_on):
     print("Please Note: Date should be in dd-mm-yyyy format")
     print("If task_completed_on is not applicable, mention 'Null'")
@@ -31,15 +28,16 @@ def Add_task_func(Date, Task, due_date, task_status, task_completed_on):
             file.write(f"{Date} | {Task} | {due_date} | {task_status} | {task_completed_on}\n")
             print(f"Task Added: {Date} | {Task} | {due_date} | {task_status} | {task_completed_on}")
 
-
+# Initialize header if needed
+initialize_file_with_header()
 
 # Example task addition
 Add_task_func("12-01-2025", "Call Maa", "12-01-2025", "Pending", "Null")
 
 # Read File Data
-# with open("task_book.txt", "r") as file:
-#     content = file.read()
-#     print(content)
+with open("task_book.txt", "r") as file:
+    content = file.read()
+    print(content)
 
 # To delete file content, uncomment below:
 # with open("task_book.txt", "w") as file:
