@@ -97,6 +97,41 @@ def delete_task_By_Task_name_func(input_task_name):
     else:
         print(f"Task '{input_task_name}' not found.")
 
+while True:
+    show_menu()
+    choice = input("Choose an option (1-5): ")
+
+    if choice == "1":
+        Date = input("Enter Date: ")
+        Task = input("Enter Task: ")
+        due_date = input("Enter Due_date: ")
+        task_status = input("Enter task_status: ")
+        task_completed_on = input("Enter task_completed_on (if any): ")
+        print(Add_task_func(Date, Task, due_date, task_status, task_completed_on))
+
+    elif choice == "2":
+        view_task()
+
+    elif choice == "3":
+        input_task = input("Enter Task which Nedd to be updated: ")
+        status_to_be_updated = input("Enter Updated Task Status: ")
+        task_completed_on_to_be_updated = input("Enter Task Completed On: ")
+        mark_task_done_by_task_func(input_task, status_to_be_updated, task_completed_on_to_be_updated)
+
+    elif choice == "4":
+        input_task = input("Enter Task which Nedd to be Deleted: ")
+        delete_task_By_Task_name_func(input_task)
+
+    elif choice == "5":
+        print("Exiting Task Book.")
+        break
+
+    else:
+        print("Invalid choice.")
+
+
+
+
 # Example usage:
 # initialize_file_with_header()
 # add_buck_task_func()
