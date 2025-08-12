@@ -18,9 +18,21 @@ def add_header():
         file.write("Date | Mood_Status\n")
 
 def add_mood_status(date,Mood_Status):
-    with open("mood_book.txt", 'a') as file:
+    if not date or not Mood_Status:
+        print("Please add date and how's your mode today")
+        return
+    else:
+        date = date.strip()
+        Mood_Status = Mood_Status.strip()
+        with open("mood_book.txt", 'a') as file:
+            file.write(f"{date} | {Mood_Status}\n")
+            print(" Your Status is Successfully Added !!! ")
+            return
+        
+def add_dumy_data():
+          
 
-
+# add_mood_status("2025-08-01","")
 #add_header()
 
 
