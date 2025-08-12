@@ -14,12 +14,13 @@ Creating simple summaries and statistics
 
 # import datetime
 def add_header():
-    with open("mood_book.text", 'a') as file:
-        file.writelines(["Date,Mood_Status\n"])
+    with open("mood_book.txt", 'a') as file:
+        file.write("Date | Mood_Status\n")
 
-add_header()
+def add_mood_status(date,Mood_Status):
+    with open("mood_book.txt", 'a') as file:
 
 
+#add_header()
 
 
-# def mood_tracker(date,Mood_status):
