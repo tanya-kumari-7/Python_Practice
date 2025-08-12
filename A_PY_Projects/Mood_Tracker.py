@@ -12,7 +12,8 @@ Creating simple summaries and statistics
 
 '''
 
-# import datetime
+from datetime import datetime
+
 def add_header():
     with open("mood_book.txt", 'a') as file:
         file.write("Date | Mood_Status\n")
@@ -66,13 +67,32 @@ def add_dumy_data():
     for date, mood in data:
         add_mood_status(date, mood)
 
-def check():
+def mood_summary_by_day(Input_date):
+    if not Input_date:
+        print("Please Enter date")
+    else:
+        with open("mood_book.txt", 'r') as file:
+            file_content = file.readlines()
 
-          
+            input_date_obj = datetime.strptime(Input_date, "%Y-%m-%d").date()
+            found = False  # track if we found any match
+
+            for x in file_content[1:]:  # [1:] to remove header
+                date_str, mood_status = x.strip().split(" | ")
+                date_obj = datetime.strptime(date_str, "%Y-%m-%d").date()
+                mood_status = mood_status.strip()
+
+                if input_date_obj == date_obj:
+                    print(f" On {input_date_obj} you were feeling {mood_status}")
+                    found = True
+
+            if not found:
+                print(f"Nothing found on {input_date_obj}, Please check Menu if you want to add status for this Date")
 
 
 #add_header()
 # add_dumy_data()
 # add_mood_status("2025-08-01","")
+# mood_summary_by_day("2025-09-10")
 
 
