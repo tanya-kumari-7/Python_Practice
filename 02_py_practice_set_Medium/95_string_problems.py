@@ -1,4 +1,11 @@
 """Reverse a string without using built-in functions."""
+string = 'sonam'
+
+def reverse_string_func(x):
+    return x[::-1]
+
+result = reverse_string_func(string)
+print(result)
 
 """Check if a string is a palindrome."""
 
