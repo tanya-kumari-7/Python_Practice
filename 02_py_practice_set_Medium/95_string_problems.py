@@ -8,6 +8,20 @@ result = reverse_string_func(string)
 print(result)
 
 """Check if a string is a palindrome."""
+string = 'Nitin'
+def palindrome_func(x):
+    x1=x.lower()
+    if x1[::] == x1[::-1]:
+        return f"Yes,{x} is palindrome "
+    else:
+        return f"No,{x} is not a palindrome "
+
+result = palindrome_func(string)
+print(result)
+
+
+
+
 
 """Find the first non-repeated character in a string."""
 
