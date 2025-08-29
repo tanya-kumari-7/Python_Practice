@@ -43,16 +43,24 @@ for x in string:
 print(dic)
 
 """Find the longest common prefix among strings."""
-string = ["interspecies", "interstellar", "interstate"]
+string = ["intersspecies", "intersstellar", "intersstate"]
 
-l1=[]
-l2=[]
-l3=[]
+lstring = ""
+fstring = string[0]
 
+for i in range(len(fstring)):
+    ch1=fstring[i]
+    check = "same"
+    for s in string[1:]:
+        if i >= len(s) or s[i] != ch1:
+            check = 'false'
+            break
+    if check=="same":
+            lstring += ch1
+ 
+print("longest common prefix len is:", len(lstring) )
+print("longest common prefix is: ", lstring )
 
-
-
-for x in string:
 
 
 """Remove duplicate characters from a string."""
