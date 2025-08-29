@@ -64,6 +64,14 @@ print("longest common prefix is: ", lstring )
 
 
 """Remove duplicate characters from a string."""
-string = 'sonam'
+string = 'ssonaam'
+output = ""
+for ch in string:
+    if ch not in output:
+        output += ch
+    else:
+        continue
+print(output)
+
 """Check if two strings are anagrams."""
 string = 'sonam'
