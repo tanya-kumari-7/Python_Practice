@@ -42,11 +42,18 @@ for x in string:
         dic[x] = 1
 print(dic)
 
-
-
-
 """Find the longest common prefix among strings."""
-string = 'sonam'
+string = ["interspecies", "interstellar", "interstate"]
+
+l1=[]
+l2=[]
+l3=[]
+
+
+
+
+for x in string:
+
 
 """Remove duplicate characters from a string."""
 string = 'sonam'
