@@ -14,7 +14,8 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = file_path
 local_file = r"C:\Users\Admin\Downloads\client_master_test.txt"
 
 # Read file (pipe separated)
-df = pd.read_csv(local_file, sep="|")
+# df = pd.read_csv(local_file, sep="|")
+df = pd.read_csv(local_file, sep="|", on_bad_lines="skip", engine="python")
 
 # Clean column names
 df.columns = (
@@ -22,7 +23,10 @@ df.columns = (
               .str.replace(" ", "_", regex=False)
               .str.replace("/", "_", regex=False)
               .str.replace(".", "_", regex=False)
+
 )
+
+df.shape
 
 # Save cleaned file
 clean_file = r"C:\Users\Admin\Downloads\client_master_clean.txt"
