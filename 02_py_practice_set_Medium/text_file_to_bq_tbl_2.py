@@ -14,8 +14,6 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = file_path
 local_file = r"C:\Users\Admin\Downloads\client_master_test.txt"
 
 
-
-
 # ==============================
 # 3. Define fixed required columns
 # ==============================
