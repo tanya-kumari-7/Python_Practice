@@ -25,7 +25,7 @@ required_columns = [
 # Read file (pipe separated)
 # df = pd.read_csv(local_file, sep="|")
 # df = pd.read_csv(local_file, sep="|", on_bad_lines="skip", engine="python")
-df = pd.read_csv(local_file, delimiter="|", dtype=str)
+df = pd.read_csv(local_file, delimiter="|", dtype=str, on_bad_lines="skip")
 
 # Keep only required columns (drop extra ones)
 df = df[[col for col in required_columns if col in df.columns]]
