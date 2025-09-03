@@ -17,6 +17,7 @@ local_file = r"C:\Users\Admin\Downloads\client_master_test.txt"
 # Read only the header row (nrows=0)
 df_headers = pd.read_csv(local_file, sep="|", nrows=0, dtype=str)
 
+df_headers.shape
 # -----------------------
 # 3. Clean column names
 # -----------------------
@@ -55,14 +56,17 @@ dataset_id = "z_tanya"
 table_id = "client_master_test"
 table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
+# Load job configuration
 job_config = bigquery.LoadJobConfig(
-    source_format=bigquery.SourceFormat.CSV,   # TXT with delimiter
+    source_format=bigquery.SourceFormat.CSV,
     field_delimiter="|",
     skip_leading_rows=1,   # skip header
-    schema=schema,         # enforce sanitized schema
+    schema=schema,
     ignore_unknown_values=True,
     allow_quoted_newlines=True,
-    write_disposition="WRITE_TRUNCATE"  # overwrite; use WRITE_APPEND if needed
+    quote_character=None,          # treat quotes as normal characters
+    max_bad_records=1000,           # allow some bad rows
+    write_disposition="WRITE_TRUNCATE"  # overwrite table
 )
 
 with open(local_file, "rb") as source_file:
@@ -79,5 +83,5 @@ load_job.result()  # wait until complete
 # 5. Confirm table
 # -----------------------
 table = client.get_table(table_ref)
-print("\n✅ Table created:", table.full_table_id)
+print("\n Table created:", table.full_table_id)
 print("Schema:", [(schema.name, schema.field_type) for schema in table.schema])
