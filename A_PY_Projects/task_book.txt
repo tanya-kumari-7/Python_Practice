@@ -1,0 +1,13 @@
+Date|Task|due_date|task_status|task_completed_on
+14-03-2025|Homework|14-03-2025|Pending|Null
+14-03-2025|Homework|14-03-2025|Pending|Null
+15-03-2025|Pay electricity bill|16-03-2025|Pending|Null
+16-03-2025|Team meeting|17-03-2025|Completed|17-03-2025
+17-03-2025|Buy groceries|18-03-2025|Pending|Null
+18-03-2025|Call plumber|19-03-2025|Completed|19-03-2025
+19-03-2025|Project submission|20-03-2025|Pending|Null
+20-03-2025|Doctor appointment|21-03-2025|Completed|21-03-2025
+21-03-2025|Gym session|22-03-2025|Pending|Null
+22-03-2025|Read book|25-03-2025|Pending|Null
+23-03-2025|Dentist visit|24-03-2025|Completed|27-03-2025
+

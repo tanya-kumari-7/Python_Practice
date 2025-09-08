@@ -1,0 +1,172 @@
+2025-09-03 11:24:52,112 - INFO - Headers read successfully: ['Member Code', 'Client Code', 'Primary Holder First Name', 'Primary Holder Middle Name', 'Primary Holder Last Name', 'Tax Status', 'Gender', 'Primary Holder DOB/Incorporation', 'Occupation Code', 'Holding Nature', 'Second Holder First Name', 'Second Holder Middle Name', 'Second Holder Last Name', 'Third Holder First Name', 'Third Holder Middle Name', 'Third Holder Last Name', 'Second Holder DOB', 'Third Holder DOB', 'Guardian First Name', 'Guardian Middle Name', 'Guardian Last Name', 'Guardian DOB', 'Primary Holder PAN Exempt', 'Second Holder PAN Exempt', 'Third Holder PAN Exempt', 'Guardian PAN Exempt', 'Primary Holder PAN', 'Second Holder PAN', 'Third Holder PAN', 'Guardian PAN', 'Primary Holder-Exempt Category', 'Second Holder Exempt Category', 'Third Holder Exempt Category', 'Guardian Exempt Category', 'Client Type', 'PMS', 'Default DP', 'CDSL DPID', 'CDSLCLTID', 'CMBP Id', 'NSDLDPID', 'NSDLCLTID', 'Account Type 1', 'Account No 1', 'MICR No 1', 'IFSC Code 1', 'Bank Name 1', 'Bank Branch 1', 'Default Bank Flag 1', 'Bank1 Created At', 'Bank1 Last Modified At', 'Bank1 Status', 'Account Type 2', 'Account No 2', 'MICR No 2', 'IFSC Code 2', 'Bank Name 2', 'Bank Branch 2', 'Default Bank Flag 2', 'Bank2 Created At', 'Bank2 Last Modified At', 'Bank2 Status', 'Account type 3', 'Account No 3', 'MICR No 3', 'IFSC Code 3', 'Bank Name 3', 'Bank Branch 3', 'Default Bank Flag 3', 'Bank3 Created At', 'Bank3 Last Modified At', 'Bank3 Status', 'Account type 4', 'Account No 4', 'MICR No 4', 'IFSC Code 4', 'Bank Name 4', 'Bank Branch 4', 'Default Bank Flag 4', 'Bank4 Created At', 'Bank4 Last Modified At', 'Bank4 Status', 'Account type 5', 'Account No 5', 'MICR No 5', 'IFSC Code 5', 'Bank Name 5', 'Bank Branch 5', 'Default Bank Flag 5', 'Bank5 Created At', 'Bank5 Last Modified At', 'Bank5 Status', 'Cheque Name', 'Div pay mode', 'Address 1', 'Address 2', 'Address 3', 'City', 'State', 'Pincode', 'Country', 'Resi. Phone', 'Resi. Fax', 'Office Phone', 'Office Fax', 'Email', 'Communication Mode', 'Foreign Address 1', 'Foreign Address 2', 'Foreign Address 3', 'Foreign Address City', 'Foreign Address Pincode', 'Foreign Address State', 'Foreign Address Country', 'Foreign Address Resi Phone', 'Foreign Address Fax', 'Foreign Address Off. Phone', 'Foreign Address Off. Fax', 'Indian Mobile No.', 'Primary Holder KYC Type', 'Primary Holder CKYC Number', 'Second Holder KYC Type', 'Second Holder CKYC Number', 'Third Holder KYC Type', 'Third Holder CKYC Number', 'Guardian KYC Type', 'Guardian CKYC Number', 'Primary Holder KRA Exempt Ref. No.', 'Second Holder KRA Exempt Ref. No.', 'Third Holder KRA Exempt Ref. No', 'Guardian Exempt Ref. No', 'Aadhaar Updated', 'Mapin Id.', 'Paperless_flag', 'LEI No', 'LEI Validity', 'Email Declaration Flag', 'Mobile Declaration Flag', 'Branch', 'Dealer', 'Nomination Opt', 'Nomination Authentication Mode', 'Nominee 1 Name', 'Nominee 1 Relationship', 'Nominee 1 Applicable(%)', 'Nominee 1 Minor Flag', 'Nominee 1 DOB', 'Nominee 1 Guardian', 'Nominee 1 Guardian PAN', 'NOM1_ID_TYP', 'NOM1_IDNO', 'NOM1_EMAIL', 'NOM1_MOB', 'NOM1_ADD1', 'NOM1_ADD2', 'NOM1_ADD3', 'NOM1_CITY', 'NOM1_PIN', 'NOM1_CON', 'Nominee 2 Name', 'Nominee 2 Relationship', 'Nominee 2 Applicable(%)', 'Nominee 2 DOB', 'Nominee 2 Minor Flag', 'Nominee 2 Guardian', 'Nominee 2 Guardian PAN', 'NOM2_ID_TYP', 'NOM2_IDNO', 'NOM2_EMAIL', 'NOM2_MOB', 'NOM2_ADD1', 'NOM2_ADD2', 'NOM2_ADD3', 'NOM2_CITY', 'NOM2_PIN', 'NOM2_CON', 'Nominee 3 Name', 'Nominee 3 Relationship', 'Nominee 3 Applicable(%)', 'Nominee 3 DOB', 'Nominee3 Minor Flag', 'Nominee3 Guardian', 'Nominee 3 Guardian PAN', 'NOM3_ID_TYP', 'NOM3_IDNO', 'NOM3_EMAIL', 'NOM3_MOB', 'NOM3_ADD1', 'NOM3_ADD2', 'NOM3_ADD3', 'NOM3_CITY', 'NOM3_PIN', 'NOM3_CON', 'NOM_SOA', 'Second Holder Email', 'Second holder Email Declaration', 'Second holder Mobile', 'Second holder Mobile Declaration', 'Third Holder Email', 'Third holder Email Declaration', 'Third holder Mobile', 'Third holder Mobile Declaration', 'Nomination Flag', 'Nomination Authentication Date', 'Guardian Relationship', 'Created By', 'Created At', 'Last Modified By', 'Last Modified At']
+2025-09-03 11:25:06,942 - INFO - 
+=== Column Mapping (Original \u2192 Cleaned) ===
+2025-09-03 11:25:06,973 - INFO - Member Code  -->  Member_Code
+2025-09-03 11:25:06,974 - INFO - Client Code  -->  Client_Code
+2025-09-03 11:25:06,974 - INFO - Primary Holder First Name  -->  Primary_Holder_First_Name
+2025-09-03 11:25:06,974 - INFO - Primary Holder Middle Name  -->  Primary_Holder_Middle_Name
+2025-09-03 11:25:06,974 - INFO - Primary Holder Last Name  -->  Primary_Holder_Last_Name
+2025-09-03 11:25:06,975 - INFO - Tax Status  -->  Tax_Status
+2025-09-03 11:25:06,975 - INFO - Primary Holder DOB/Incorporation  -->  Primary_Holder_DOB_Incorporation
+2025-09-03 11:25:06,975 - INFO - Occupation Code  -->  Occupation_Code
+2025-09-03 11:25:06,975 - INFO - Holding Nature  -->  Holding_Nature
+2025-09-03 11:25:06,975 - INFO - Second Holder First Name  -->  Second_Holder_First_Name
+2025-09-03 11:25:06,975 - INFO - Second Holder Middle Name  -->  Second_Holder_Middle_Name
+2025-09-03 11:25:06,975 - INFO - Second Holder Last Name  -->  Second_Holder_Last_Name
+2025-09-03 11:25:06,975 - INFO - Third Holder First Name  -->  Third_Holder_First_Name
+2025-09-03 11:25:06,975 - INFO - Third Holder Middle Name  -->  Third_Holder_Middle_Name
+2025-09-03 11:25:06,975 - INFO - Third Holder Last Name  -->  Third_Holder_Last_Name
+2025-09-03 11:25:06,975 - INFO - Second Holder DOB  -->  Second_Holder_DOB
+2025-09-03 11:25:06,975 - INFO - Third Holder DOB  -->  Third_Holder_DOB
+2025-09-03 11:25:06,975 - INFO - Guardian First Name  -->  Guardian_First_Name
+2025-09-03 11:25:06,975 - INFO - Guardian Middle Name  -->  Guardian_Middle_Name
+2025-09-03 11:25:06,975 - INFO - Guardian Last Name  -->  Guardian_Last_Name
+2025-09-03 11:25:06,975 - INFO - Guardian DOB  -->  Guardian_DOB
+2025-09-03 11:25:06,975 - INFO - Primary Holder PAN Exempt  -->  Primary_Holder_PAN_Exempt
+2025-09-03 11:25:06,975 - INFO - Second Holder PAN Exempt  -->  Second_Holder_PAN_Exempt
+2025-09-03 11:25:06,975 - INFO - Third Holder PAN Exempt  -->  Third_Holder_PAN_Exempt
+2025-09-03 11:25:06,975 - INFO - Guardian PAN Exempt  -->  Guardian_PAN_Exempt
+2025-09-03 11:25:06,975 - INFO - Primary Holder PAN  -->  Primary_Holder_PAN
+2025-09-03 11:25:06,975 - INFO - Second Holder PAN  -->  Second_Holder_PAN
+2025-09-03 11:25:06,975 - INFO - Third Holder PAN  -->  Third_Holder_PAN
+2025-09-03 11:25:06,975 - INFO - Guardian PAN  -->  Guardian_PAN
+2025-09-03 11:25:06,976 - INFO - Primary Holder-Exempt Category  -->  Primary_HolderExempt_Category
+2025-09-03 11:25:06,976 - INFO - Second Holder Exempt Category  -->  Second_Holder_Exempt_Category
+2025-09-03 11:25:06,976 - INFO - Third Holder Exempt Category  -->  Third_Holder_Exempt_Category
+2025-09-03 11:25:06,976 - INFO - Guardian Exempt Category  -->  Guardian_Exempt_Category
+2025-09-03 11:25:06,976 - INFO - Client Type  -->  Client_Type
+2025-09-03 11:25:06,976 - INFO - Default DP  -->  Default_DP
+2025-09-03 11:25:06,976 - INFO - CDSL DPID  -->  CDSL_DPID
+2025-09-03 11:25:06,976 - INFO - CMBP Id  -->  CMBP_Id
+2025-09-03 11:25:06,976 - INFO - Account Type 1  -->  Account_Type_1
+2025-09-03 11:25:06,976 - INFO - Account No 1  -->  Account_No_1
+2025-09-03 11:25:06,976 - INFO - MICR No 1  -->  MICR_No_1
+2025-09-03 11:25:06,976 - INFO - IFSC Code 1  -->  IFSC_Code_1
+2025-09-03 11:25:06,976 - INFO - Bank Name 1  -->  Bank_Name_1
+2025-09-03 11:25:06,976 - INFO - Bank Branch 1  -->  Bank_Branch_1
+2025-09-03 11:25:06,976 - INFO - Default Bank Flag 1  -->  Default_Bank_Flag_1
+2025-09-03 11:25:06,976 - INFO - Bank1 Created At  -->  Bank1_Created_At
+2025-09-03 11:25:06,976 - INFO - Bank1 Last Modified At  -->  Bank1_Last_Modified_At
+2025-09-03 11:25:06,976 - INFO - Bank1 Status  -->  Bank1_Status
+2025-09-03 11:25:06,976 - INFO - Account Type 2  -->  Account_Type_2
+2025-09-03 11:25:06,976 - INFO - Account No 2  -->  Account_No_2
+2025-09-03 11:25:06,976 - INFO - MICR No 2  -->  MICR_No_2
+2025-09-03 11:25:06,976 - INFO - IFSC Code 2  -->  IFSC_Code_2
+2025-09-03 11:25:06,977 - INFO - Bank Name 2  -->  Bank_Name_2
+2025-09-03 11:25:06,977 - INFO - Bank Branch 2  -->  Bank_Branch_2
+2025-09-03 11:25:06,977 - INFO - Default Bank Flag 2  -->  Default_Bank_Flag_2
+2025-09-03 11:25:06,977 - INFO - Bank2 Created At  -->  Bank2_Created_At
+2025-09-03 11:25:06,977 - INFO - Bank2 Last Modified At  -->  Bank2_Last_Modified_At
+2025-09-03 11:25:06,977 - INFO - Bank2 Status  -->  Bank2_Status
+2025-09-03 11:25:06,977 - INFO - Account type 3  -->  Account_type_3
+2025-09-03 11:25:06,977 - INFO - Account No 3  -->  Account_No_3
+2025-09-03 11:25:06,977 - INFO - MICR No 3  -->  MICR_No_3
+2025-09-03 11:25:06,977 - INFO - IFSC Code 3  -->  IFSC_Code_3
+2025-09-03 11:25:06,977 - INFO - Bank Name 3  -->  Bank_Name_3
+2025-09-03 11:25:06,977 - INFO - Bank Branch 3  -->  Bank_Branch_3
+2025-09-03 11:25:06,977 - INFO - Default Bank Flag 3  -->  Default_Bank_Flag_3
+2025-09-03 11:25:06,977 - INFO - Bank3 Created At  -->  Bank3_Created_At
+2025-09-03 11:25:06,977 - INFO - Bank3 Last Modified At  -->  Bank3_Last_Modified_At
+2025-09-03 11:25:06,977 - INFO - Bank3 Status  -->  Bank3_Status
+2025-09-03 11:25:06,977 - INFO - Account type 4  -->  Account_type_4
+2025-09-03 11:25:06,977 - INFO - Account No 4  -->  Account_No_4
+2025-09-03 11:25:06,977 - INFO - MICR No 4  -->  MICR_No_4
+2025-09-03 11:25:06,977 - INFO - IFSC Code 4  -->  IFSC_Code_4
+2025-09-03 11:25:06,977 - INFO - Bank Name 4  -->  Bank_Name_4
+2025-09-03 11:25:06,977 - INFO - Bank Branch 4  -->  Bank_Branch_4
+2025-09-03 11:25:06,977 - INFO - Default Bank Flag 4  -->  Default_Bank_Flag_4
+2025-09-03 11:25:06,977 - INFO - Bank4 Created At  -->  Bank4_Created_At
+2025-09-03 11:25:06,977 - INFO - Bank4 Last Modified At  -->  Bank4_Last_Modified_At
+2025-09-03 11:25:06,977 - INFO - Bank4 Status  -->  Bank4_Status
+2025-09-03 11:25:06,977 - INFO - Account type 5  -->  Account_type_5
+2025-09-03 11:25:06,977 - INFO - Account No 5  -->  Account_No_5
+2025-09-03 11:25:06,977 - INFO - MICR No 5  -->  MICR_No_5
+2025-09-03 11:25:06,977 - INFO - IFSC Code 5  -->  IFSC_Code_5
+2025-09-03 11:25:06,977 - INFO - Bank Name 5  -->  Bank_Name_5
+2025-09-03 11:25:06,977 - INFO - Bank Branch 5  -->  Bank_Branch_5
+2025-09-03 11:25:06,977 - INFO - Default Bank Flag 5  -->  Default_Bank_Flag_5
+2025-09-03 11:25:06,977 - INFO - Bank5 Created At  -->  Bank5_Created_At
+2025-09-03 11:25:06,977 - INFO - Bank5 Last Modified At  -->  Bank5_Last_Modified_At
+2025-09-03 11:25:06,977 - INFO - Bank5 Status  -->  Bank5_Status
+2025-09-03 11:25:06,977 - INFO - Cheque Name  -->  Cheque_Name
+2025-09-03 11:25:06,977 - INFO - Div pay mode  -->  Div_pay_mode
+2025-09-03 11:25:06,977 - INFO - Address 1  -->  Address_1
+2025-09-03 11:25:06,977 - INFO - Address 2  -->  Address_2
+2025-09-03 11:25:06,977 - INFO - Address 3  -->  Address_3
+2025-09-03 11:25:06,977 - INFO - Resi. Phone  -->  Resi__Phone
+2025-09-03 11:25:06,977 - INFO - Resi. Fax  -->  Resi__Fax
+2025-09-03 11:25:06,977 - INFO - Office Phone  -->  Office_Phone
+2025-09-03 11:25:06,977 - INFO - Office Fax  -->  Office_Fax
+2025-09-03 11:25:06,977 - INFO - Communication Mode  -->  Communication_Mode
+2025-09-03 11:25:06,977 - INFO - Foreign Address 1  -->  Foreign_Address_1
+2025-09-03 11:25:06,977 - INFO - Foreign Address 2  -->  Foreign_Address_2
+2025-09-03 11:25:06,977 - INFO - Foreign Address 3  -->  Foreign_Address_3
+2025-09-03 11:25:06,977 - INFO - Foreign Address City  -->  Foreign_Address_City
+2025-09-03 11:25:06,977 - INFO - Foreign Address Pincode  -->  Foreign_Address_Pincode
+2025-09-03 11:25:06,977 - INFO - Foreign Address State  -->  Foreign_Address_State
+2025-09-03 11:25:06,977 - INFO - Foreign Address Country  -->  Foreign_Address_Country
+2025-09-03 11:25:06,977 - INFO - Foreign Address Resi Phone  -->  Foreign_Address_Resi_Phone
+2025-09-03 11:25:06,977 - INFO - Foreign Address Fax  -->  Foreign_Address_Fax
+2025-09-03 11:25:06,977 - INFO - Foreign Address Off. Phone  -->  Foreign_Address_Off__Phone
+2025-09-03 11:25:06,977 - INFO - Foreign Address Off. Fax  -->  Foreign_Address_Off__Fax
+2025-09-03 11:25:06,977 - INFO - Indian Mobile No.  -->  Indian_Mobile_No_
+2025-09-03 11:25:06,977 - INFO - Primary Holder KYC Type  -->  Primary_Holder_KYC_Type
+2025-09-03 11:25:06,977 - INFO - Primary Holder CKYC Number  -->  Primary_Holder_CKYC_Number
+2025-09-03 11:25:06,977 - INFO - Second Holder KYC Type  -->  Second_Holder_KYC_Type
+2025-09-03 11:25:06,977 - INFO - Second Holder CKYC Number  -->  Second_Holder_CKYC_Number
+2025-09-03 11:25:06,977 - INFO - Third Holder KYC Type  -->  Third_Holder_KYC_Type
+2025-09-03 11:25:06,977 - INFO - Third Holder CKYC Number  -->  Third_Holder_CKYC_Number
+2025-09-03 11:25:06,977 - INFO - Guardian KYC Type  -->  Guardian_KYC_Type
+2025-09-03 11:25:06,977 - INFO - Guardian CKYC Number  -->  Guardian_CKYC_Number
+2025-09-03 11:25:06,977 - INFO - Primary Holder KRA Exempt Ref. No.  -->  Primary_Holder_KRA_Exempt_Ref__No_
+2025-09-03 11:25:06,977 - INFO - Second Holder KRA Exempt Ref. No.  -->  Second_Holder_KRA_Exempt_Ref__No_
+2025-09-03 11:25:06,977 - INFO - Third Holder KRA Exempt Ref. No  -->  Third_Holder_KRA_Exempt_Ref__No
+2025-09-03 11:25:06,977 - INFO - Guardian Exempt Ref. No  -->  Guardian_Exempt_Ref__No
+2025-09-03 11:25:06,977 - INFO - Aadhaar Updated  -->  Aadhaar_Updated
+2025-09-03 11:25:06,977 - INFO - Mapin Id.  -->  Mapin_Id_
+2025-09-03 11:25:06,977 - INFO - LEI No  -->  LEI_No
+2025-09-03 11:25:06,978 - INFO - LEI Validity  -->  LEI_Validity
+2025-09-03 11:25:06,978 - INFO - Email Declaration Flag  -->  Email_Declaration_Flag
+2025-09-03 11:25:06,978 - INFO - Mobile Declaration Flag  -->  Mobile_Declaration_Flag
+2025-09-03 11:25:06,978 - INFO - Nomination Opt  -->  Nomination_Opt
+2025-09-03 11:25:06,978 - INFO - Nomination Authentication Mode  -->  Nomination_Authentication_Mode
+2025-09-03 11:25:06,978 - INFO - Nominee 1 Name  -->  Nominee_1_Name
+2025-09-03 11:25:06,978 - INFO - Nominee 1 Relationship  -->  Nominee_1_Relationship
+2025-09-03 11:25:06,978 - INFO - Nominee 1 Applicable(%)  -->  Nominee_1_Applicable
+2025-09-03 11:25:06,978 - INFO - Nominee 1 Minor Flag  -->  Nominee_1_Minor_Flag
+2025-09-03 11:25:06,978 - INFO - Nominee 1 DOB  -->  Nominee_1_DOB
+2025-09-03 11:25:06,978 - INFO - Nominee 1 Guardian  -->  Nominee_1_Guardian
+2025-09-03 11:25:06,978 - INFO - Nominee 1 Guardian PAN  -->  Nominee_1_Guardian_PAN
+2025-09-03 11:25:06,978 - INFO - Nominee 2 Name  -->  Nominee_2_Name
+2025-09-03 11:25:06,978 - INFO - Nominee 2 Relationship  -->  Nominee_2_Relationship
+2025-09-03 11:25:06,978 - INFO - Nominee 2 Applicable(%)  -->  Nominee_2_Applicable
+2025-09-03 11:25:06,978 - INFO - Nominee 2 DOB  -->  Nominee_2_DOB
+2025-09-03 11:25:06,978 - INFO - Nominee 2 Minor Flag  -->  Nominee_2_Minor_Flag
+2025-09-03 11:25:06,978 - INFO - Nominee 2 Guardian  -->  Nominee_2_Guardian
+2025-09-03 11:25:06,978 - INFO - Nominee 2 Guardian PAN  -->  Nominee_2_Guardian_PAN
+2025-09-03 11:25:06,978 - INFO - Nominee 3 Name  -->  Nominee_3_Name
+2025-09-03 11:25:06,978 - INFO - Nominee 3 Relationship  -->  Nominee_3_Relationship
+2025-09-03 11:25:06,978 - INFO - Nominee 3 Applicable(%)  -->  Nominee_3_Applicable
+2025-09-03 11:25:06,978 - INFO - Nominee 3 DOB  -->  Nominee_3_DOB
+2025-09-03 11:25:06,978 - INFO - Nominee3 Minor Flag  -->  Nominee3_Minor_Flag
+2025-09-03 11:25:06,978 - INFO - Nominee3 Guardian  -->  Nominee3_Guardian
+2025-09-03 11:25:06,978 - INFO - Nominee 3 Guardian PAN  -->  Nominee_3_Guardian_PAN
+2025-09-03 11:25:06,978 - INFO - Second Holder Email  -->  Second_Holder_Email
+2025-09-03 11:25:06,978 - INFO - Second holder Email Declaration  -->  Second_holder_Email_Declaration
+2025-09-03 11:25:06,978 - INFO - Second holder Mobile  -->  Second_holder_Mobile
+2025-09-03 11:25:06,978 - INFO - Second holder Mobile Declaration  -->  Second_holder_Mobile_Declaration
+2025-09-03 11:25:06,978 - INFO - Third Holder Email  -->  Third_Holder_Email
+2025-09-03 11:25:06,978 - INFO - Third holder Email Declaration  -->  Third_holder_Email_Declaration
+2025-09-03 11:25:06,978 - INFO - Third holder Mobile  -->  Third_holder_Mobile
+2025-09-03 11:25:06,978 - INFO - Third holder Mobile Declaration  -->  Third_holder_Mobile_Declaration
+2025-09-03 11:25:06,978 - INFO - Nomination Flag  -->  Nomination_Flag
+2025-09-03 11:25:06,978 - INFO - Nomination Authentication Date  -->  Nomination_Authentication_Date
+2025-09-03 11:25:06,978 - INFO - Guardian Relationship  -->  Guardian_Relationship
+2025-09-03 11:25:06,978 - INFO - Created By  -->  Created_By
+2025-09-03 11:25:06,978 - INFO - Created At  -->  Created_At
+2025-09-03 11:25:06,978 - INFO - Last Modified By  -->  Last_Modified_By
+2025-09-03 11:25:06,978 - INFO - Last Modified At  -->  Last_Modified_At
+2025-09-03 11:25:48,142 - INFO - Preprocessed file written to: C:\Users\Admin\Downloads\client_master_test_cleaned.txt
+2025-09-03 11:26:16,335 - INFO - Starting job: a246ec2b-7e34-4e28-b6bc-784c80bb0e84
+2025-09-03 11:26:20,041 - INFO - Table created: mydb-470314:z_tanya.client_master_test
+2025-09-03 11:26:20,044 - INFO - Schema: [('Member_Code', 'STRING'), ('Client_Code', 'STRING'), ('Primary_Holder_First_Name', 'STRING'), ('Primary_Holder_Middle_Name', 'STRING'), ('Primary_Holder_Last_Name', 'STRING'), ('Tax_Status', 'STRING'), ('Gender', 'STRING'), ('Primary_Holder_DOB_Incorporation', 'STRING'), ('Occupation_Code', 'STRING'), ('Holding_Nature', 'STRING'), ('Second_Holder_First_Name', 'STRING'), ('Second_Holder_Middle_Name', 'STRING'), ('Second_Holder_Last_Name', 'STRING'), ('Third_Holder_First_Name', 'STRING'), ('Third_Holder_Middle_Name', 'STRING'), ('Third_Holder_Last_Name', 'STRING'), ('Second_Holder_DOB', 'STRING'), ('Third_Holder_DOB', 'STRING'), ('Guardian_First_Name', 'STRING'), ('Guardian_Middle_Name', 'STRING'), ('Guardian_Last_Name', 'STRING'), ('Guardian_DOB', 'STRING'), ('Primary_Holder_PAN_Exempt', 'STRING'), ('Second_Holder_PAN_Exempt', 'STRING'), ('Third_Holder_PAN_Exempt', 'STRING'), ('Guardian_PAN_Exempt', 'STRING'), ('Primary_Holder_PAN', 'STRING'), ('Second_Holder_PAN', 'STRING'), ('Third_Holder_PAN', 'STRING'), ('Guardian_PAN', 'STRING'), ('Primary_HolderExempt_Category', 'STRING'), ('Second_Holder_Exempt_Category', 'STRING'), ('Third_Holder_Exempt_Category', 'STRING'), ('Guardian_Exempt_Category', 'STRING'), ('Client_Type', 'STRING'), ('PMS', 'STRING'), ('Default_DP', 'STRING'), ('CDSL_DPID', 'STRING'), ('CDSLCLTID', 'STRING'), ('CMBP_Id', 'STRING'), ('NSDLDPID', 'STRING'), ('NSDLCLTID', 'STRING'), ('Account_Type_1', 'STRING'), ('Account_No_1', 'STRING'), ('MICR_No_1', 'STRING'), ('IFSC_Code_1', 'STRING'), ('Bank_Name_1', 'STRING'), ('Bank_Branch_1', 'STRING'), ('Default_Bank_Flag_1', 'STRING'), ('Bank1_Created_At', 'STRING'), ('Bank1_Last_Modified_At', 'STRING'), ('Bank1_Status', 'STRING'), ('Account_Type_2', 'STRING'), ('Account_No_2', 'STRING'), ('MICR_No_2', 'STRING'), ('IFSC_Code_2', 'STRING'), ('Bank_Name_2', 'STRING'), ('Bank_Branch_2', 'STRING'), ('Default_Bank_Flag_2', 'STRING'), ('Bank2_Created_At', 'STRING'), ('Bank2_Last_Modified_At', 'STRING'), ('Bank2_Status', 'STRING'), ('Account_type_3', 'STRING'), ('Account_No_3', 'STRING'), ('MICR_No_3', 'STRING'), ('IFSC_Code_3', 'STRING'), ('Bank_Name_3', 'STRING'), ('Bank_Branch_3', 'STRING'), ('Default_Bank_Flag_3', 'STRING'), ('Bank3_Created_At', 'STRING'), ('Bank3_Last_Modified_At', 'STRING'), ('Bank3_Status', 'STRING'), ('Account_type_4', 'STRING'), ('Account_No_4', 'STRING'), ('MICR_No_4', 'STRING'), ('IFSC_Code_4', 'STRING'), ('Bank_Name_4', 'STRING'), ('Bank_Branch_4', 'STRING'), ('Default_Bank_Flag_4', 'STRING'), ('Bank4_Created_At', 'STRING'), ('Bank4_Last_Modified_At', 'STRING'), ('Bank4_Status', 'STRING'), ('Account_type_5', 'STRING'), ('Account_No_5', 'STRING'), ('MICR_No_5', 'STRING'), ('IFSC_Code_5', 'STRING'), ('Bank_Name_5', 'STRING'), ('Bank_Branch_5', 'STRING'), ('Default_Bank_Flag_5', 'STRING'), ('Bank5_Created_At', 'STRING'), ('Bank5_Last_Modified_At', 'STRING'), ('Bank5_Status', 'STRING'), ('Cheque_Name', 'STRING'), ('Div_pay_mode', 'STRING'), ('Address_1', 'STRING'), ('Address_2', 'STRING'), ('Address_3', 'STRING'), ('City', 'STRING'), ('State', 'STRING'), ('Pincode', 'STRING'), ('Country', 'STRING'), ('Resi__Phone', 'STRING'), ('Resi__Fax', 'STRING'), ('Office_Phone', 'STRING'), ('Office_Fax', 'STRING'), ('Email', 'STRING'), ('Communication_Mode', 'STRING'), ('Foreign_Address_1', 'STRING'), ('Foreign_Address_2', 'STRING'), ('Foreign_Address_3', 'STRING'), ('Foreign_Address_City', 'STRING'), ('Foreign_Address_Pincode', 'STRING'), ('Foreign_Address_State', 'STRING'), ('Foreign_Address_Country', 'STRING'), ('Foreign_Address_Resi_Phone', 'STRING'), ('Foreign_Address_Fax', 'STRING'), ('Foreign_Address_Off__Phone', 'STRING'), ('Foreign_Address_Off__Fax', 'STRING'), ('Indian_Mobile_No_', 'STRING'), ('Primary_Holder_KYC_Type', 'STRING'), ('Primary_Holder_CKYC_Number', 'STRING'), ('Second_Holder_KYC_Type', 'STRING'), ('Second_Holder_CKYC_Number', 'STRING'), ('Third_Holder_KYC_Type', 'STRING'), ('Third_Holder_CKYC_Number', 'STRING'), ('Guardian_KYC_Type', 'STRING'), ('Guardian_CKYC_Number', 'STRING'), ('Primary_Holder_KRA_Exempt_Ref__No_', 'STRING'), ('Second_Holder_KRA_Exempt_Ref__No_', 'STRING'), ('Third_Holder_KRA_Exempt_Ref__No', 'STRING'), ('Guardian_Exempt_Ref__No', 'STRING'), ('Aadhaar_Updated', 'STRING'), ('Mapin_Id_', 'STRING'), ('Paperless_flag', 'STRING'), ('LEI_No', 'STRING'), ('LEI_Validity', 'STRING'), ('Email_Declaration_Flag', 'STRING'), ('Mobile_Declaration_Flag', 'STRING'), ('Branch', 'STRING'), ('Dealer', 'STRING'), ('Nomination_Opt', 'STRING'), ('Nomination_Authentication_Mode', 'STRING'), ('Nominee_1_Name', 'STRING'), ('Nominee_1_Relationship', 'STRING'), ('Nominee_1_Applicable', 'STRING'), ('Nominee_1_Minor_Flag', 'STRING'), ('Nominee_1_DOB', 'STRING'), ('Nominee_1_Guardian', 'STRING'), ('Nominee_1_Guardian_PAN', 'STRING'), ('NOM1_ID_TYP', 'STRING'), ('NOM1_IDNO', 'STRING'), ('NOM1_EMAIL', 'STRING'), ('NOM1_MOB', 'STRING'), ('NOM1_ADD1', 'STRING'), ('NOM1_ADD2', 'STRING'), ('NOM1_ADD3', 'STRING'), ('NOM1_CITY', 'STRING'), ('NOM1_PIN', 'STRING'), ('NOM1_CON', 'STRING'), ('Nominee_2_Name', 'STRING'), ('Nominee_2_Relationship', 'STRING'), ('Nominee_2_Applicable', 'STRING'), ('Nominee_2_DOB', 'STRING'), ('Nominee_2_Minor_Flag', 'STRING'), ('Nominee_2_Guardian', 'STRING'), ('Nominee_2_Guardian_PAN', 'STRING'), ('NOM2_ID_TYP', 'STRING'), ('NOM2_IDNO', 'STRING'), ('NOM2_EMAIL', 'STRING'), ('NOM2_MOB', 'STRING'), ('NOM2_ADD1', 'STRING'), ('NOM2_ADD2', 'STRING'), ('NOM2_ADD3', 'STRING'), ('NOM2_CITY', 'STRING'), ('NOM2_PIN', 'STRING'), ('NOM2_CON', 'STRING'), ('Nominee_3_Name', 'STRING'), ('Nominee_3_Relationship', 'STRING'), ('Nominee_3_Applicable', 'STRING'), ('Nominee_3_DOB', 'STRING'), ('Nominee3_Minor_Flag', 'STRING'), ('Nominee3_Guardian', 'STRING'), ('Nominee_3_Guardian_PAN', 'STRING'), ('NOM3_ID_TYP', 'STRING'), ('NOM3_IDNO', 'STRING'), ('NOM3_EMAIL', 'STRING'), ('NOM3_MOB', 'STRING'), ('NOM3_ADD1', 'STRING'), ('NOM3_ADD2', 'STRING'), ('NOM3_ADD3', 'STRING'), ('NOM3_CITY', 'STRING'), ('NOM3_PIN', 'STRING'), ('NOM3_CON', 'STRING'), ('NOM_SOA', 'STRING'), ('Second_Holder_Email', 'STRING'), ('Second_holder_Email_Declaration', 'STRING'), ('Second_holder_Mobile', 'STRING'), ('Second_holder_Mobile_Declaration', 'STRING'), ('Third_Holder_Email', 'STRING'), ('Third_holder_Email_Declaration', 'STRING'), ('Third_holder_Mobile', 'STRING'), ('Third_holder_Mobile_Declaration', 'STRING'), ('Nomination_Flag', 'STRING'), ('Nomination_Authentication_Date', 'STRING'), ('Guardian_Relationship', 'STRING'), ('Created_By', 'STRING'), ('Created_At', 'STRING'), ('Last_Modified_By', 'STRING'), ('Last_Modified_At', 'STRING')]

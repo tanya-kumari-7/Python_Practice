@@ -1,0 +1,78 @@
+import os
+import datetime
+
+def show_menu():
+    print("Welcome to Task Manager App")
+    print("Hope You're Doing Great!") 
+    print("Here is your Menu")
+    print(" 1. Add Task")
+    print(" 2. View Tasks")
+    print(" 3. Update Task")
+    print(" 4. Delete Task")
+    print(" 5. Exit")
+
+def initialize_file_with_header():
+    header = "Date | Task | due_date | task_status | task_completed_on\n"
+    if not os.path.exists("task_book.txt") or os.stat("task_book.txt").st_size == 0:
+        with open("task_book.txt", 'w') as file:
+            file.write(header)
+
+# Initialize header if needed
+# initialize_file_with_header()
+
+def Add_task_func(Date, Task, due_date, task_status, task_completed_on):
+    print("Please Note: Date should be in dd-mm-yyyy format")
+    print("If task_completed_on is not applicable, mention 'Null'")
+    if not Date or not Task or not due_date or not task_status or not task_completed_on:
+        print("Please Enter Complete Details: Date, Task, due_date, task_status, task_completed_on")
+    else:
+        with open("task_book.txt", 'a') as file:
+            file.write(f"{Date} | {Task} | {due_date} | {task_status} | {task_completed_on}\n")
+            print(f"Task Added: {Date} | {Task} | {due_date} | {task_status} | {task_completed_on}")
+
+# Example task addition
+# Add_task_func("14-03-2025", "Home Work to do", "14-03-2025", "Pending", "Null")
+
+def view_task():
+    with open("task_book.txt", 'r') as file:
+        content = file.read()
+        print(content)
+        return   
+    
+def mark_task_done_by_task_func(input_task,status_to_be_updated,task_completed_on_to_be_updated):
+    with open("task_book.txt", 'r') as file:
+        file_detail = file.readlines()
+
+        updated_lines = []
+        task_found = False
+
+        for line,content in enumerate(file_detail,start=1):
+            Date, Task, due_date, task_status, task_completed_on = content.strip().split("|")
+            if input_task.strip() == Task.strip():
+                task_status = status_to_be_updated
+                task_completed_on_to_be_updated.strip() == task_completed_on
+                task_found = True
+
+        updated_line = "|".join([Date, Task, due_date, task_status, task_completed_on])
+        updated_lines.append(updated_line + "\n")
+
+        with open("task_book.txt", 'w') as file:
+            file.writelines(updated_lines)
+            if task_found:
+                print(f"{input_task}' updated successfully.")
+            else:
+                print(f"'{input_task}' not found.")
+
+def delete_task_By_Task_name_func(input_task_name):
+                with open("task_book.txt", 'r') as file:
+                      file_content = file.readlines()
+                      updated_task = []
+                      for content in file_content:
+                           Date, Task, due_date, task_status, task_completed_on = content.strip().split("|")
+                           if input_task_name.strip() != Task.strip():
+                                updated_task.append(content)
+                with open("task_book.txt", 'w') as file:
+                     file.writelines(content)
+
+view_task()
+                           
