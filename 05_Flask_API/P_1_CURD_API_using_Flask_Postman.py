@@ -12,3 +12,14 @@ TABLE_ID = "vle_master"
 TABLE_REF = f"{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}"
 
 
+app.route('/create',methods=['POST'])
+def create_record():
+    data = request.json
+    errors = client.insert_rows_json(TABLE_REF,[data])
+
+    if errors:
+        return jsonify({"errors":errors}),400
+    
+    return jsonify({"message": "Record inserted successfully"}), 201
+
+
