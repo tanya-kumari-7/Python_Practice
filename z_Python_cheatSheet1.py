@@ -70,6 +70,15 @@ print("Is Less:", is_less)
 print("Is Greater or Equal:", is_greater_equal)
 print("Is Less or Equal:", is_less_equal)
 
+# Like Operator [''' Using in (like SQL %word%) ''']
+text = "I love Python programming"
+
+print("Python" in text)   # True  (like SQL: WHERE text LIKE '%Python%')
+print("Java" in text)     # False
+
+
+
+
 # Logical Operations
 """
 - AND: x and y
