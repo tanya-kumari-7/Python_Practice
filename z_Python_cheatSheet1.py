@@ -72,13 +72,21 @@ print("Is Less or Equal:", is_less_equal)
 
 # Like Operator [''' Using in (like SQL %word%) ''']
 text = "I love Python programming"
+text2 = "Tanya"
+text3 = "Python is powerful"
 
 print("Python" in text)   # True  (like SQL: WHERE text LIKE '%Python%')
 print("Java" in text)     # False
 
+#  Using .startswith() and .endswith()
+print(text2.lower().startswith("t"))
+print(text2.lower().endswith("a"))
 
+# Using .find()
+pos = text3.lower().find("python")
+print(pos)
 
-
+pos = text.find("power")
 # Logical Operations
 """
 - AND: x and y
