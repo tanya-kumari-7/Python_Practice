@@ -41,3 +41,5 @@ load_job.result()  # Wait for the job to complete
 table = client.get_table(table_ref)
 print("Table created:", table.full_table_id)
 print("Schema:", [(schema.name, schema.field_type) for schema in table.schema])
+
+#############33
