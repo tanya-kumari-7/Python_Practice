@@ -2,11 +2,11 @@
 
 def add_task(task):
     if not task.strip():
-        return "❌ Task cannot be empty."
+        return "Task cannot be empty."
 
     with open("tasks.txt", "a") as file:
         file.write(task + " | Not Done\n")
-    return "✅ Task added!"
+    return "Task added!"
 
 
 def read_tasks():
@@ -16,11 +16,11 @@ def read_tasks():
             if not tasks:
                 print("📭 No tasks found.")
             else:
-                print("📝 Your Tasks:")
+                print("Your Tasks:")
                 for i, task in enumerate(tasks, start=1):
                     print(f"{i}. {task.strip()}")
     except FileNotFoundError:
-        print("⚠️ Task file not found. Add a task first.")
+        print("Task file not found. Add a task first.")
         
 def delete_task_by_name(task_name):
     try:
@@ -37,12 +37,12 @@ def delete_task_by_name(task_name):
         if task_found:
             with open("tasks.txt", "w") as file:
                 file.writelines(tasks)
-            print(f"🗑️ Task deleted: {deleted.strip()}")
+            print(f"Task deleted: {deleted.strip()}")
         else:
-            print("❌ Task not found.")
+            print("Task not found.")
 
     except FileNotFoundError:
-        print("⚠️ Task file not found.")
+        print("Task file not found.")
         
         
 def mark_done(task_number):
@@ -54,16 +54,16 @@ def mark_done(task_number):
             tasks[task_number - 1] = f"{task_text} | Done\n"
             with open("tasks.txt", "w") as file:
                 file.writelines(tasks)
-            print("✅ Task marked as done!")
+            print("Task marked as done!")
         else:
-            print("❌ Invalid task number.")
+            print("Invalid task number.")
     except FileNotFoundError:
-        print("❌ tasks.txt file not found.")
+        print("tasks.txt file not found.")
         
         
 # ✅ Main menu loop (properly indented)
 while True:
-    print("\n📝 To-Do List Manager")
+    print("\nTo-Do List Manager")
     print("1. Add Task")
     print("2. View Tasks")
     print("3. Mark Task as Done")
@@ -88,8 +88,8 @@ while True:
         delete_task_by_name(name)
 
     elif choice == "5":
-        print("👋 Exiting. Have a productive day!")
+        print("Exiting. Have a productive day!")
         break
 
     else:
-        print("❌ Invalid choice.")
+        print("Invalid choice.")
