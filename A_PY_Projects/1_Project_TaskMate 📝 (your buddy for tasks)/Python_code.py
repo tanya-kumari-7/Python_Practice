@@ -14,7 +14,7 @@ def add_task(task_id,task_name,status,date):
         return "Enter complete task details :task_id,task_name,status,date(format: yyyy-mm-dd)"
     else:
         with open("text_book.txt","a") as file:
-            file.write(f"{task_id} | {task_name} |{status} | {date}\n")
+            file.write(f"{task_id}|{task_name}|{status}|{date}\n")
             return "Task Added !! :)"
         
 add_task("1", "Update Trade Details", "Pending", "2025-01-01")
@@ -39,17 +39,28 @@ add_task("19", "Update User Permissions", "In Progress", "2025-02-10")
 add_task("20", "Plan Product Launch", "Pending", "2025-02-12")
 
 
-def delete_task_by_id(task_id):
-    input_task_id = str(task_id)
+# def delete_task_by_id(task_id):
+#     input_task_id = str(task_id)
 
-    # Step 1: Read all tasks
-    with open("text_book.txt", "r") as file:
-        task_details = file.readlines()
-        for line in task_details:
-            task_id,task_name,status,date = line.strip().split("|")
-            if task_id == input_task_id:
-                print(line)
-            else:
-                continue
+#     with open("text_book.txt", "r") as file:
+#         task_details = file.readlines()
 
-delete_task_by_id(20)
+#         updated_task = []
+#         case_status = False
+        
+#         for line in task_details:
+#             task_id,task_name,status,date = line.strip().split("|")
+#             if str(task_id) == input_task_id:
+#                 print("FOUND: Task will be deleted:", line)
+#                 case_status = True
+#                 continue
+#             updated_task.append(line)
+
+#         with open("text_book.txt", "w") as file:
+#             file.writelines(updated_task)
+
+#         if not case_status:
+#             print(f"Task with ID {input_task_id} not found!")
+
+
+# delete_task_by_id(20)

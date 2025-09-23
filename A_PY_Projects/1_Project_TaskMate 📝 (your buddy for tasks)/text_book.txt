@@ -1,20 +1,19 @@
-1 | Update Trade Details |Pending | 2025-01-01
-2 | Check Payment Records |In Progress | 2025-01-03
-3 | Review Client Feedback |Completed | 2025-01-05
-4 | Prepare Monthly Report |Pending | 2025-01-07
-5 | Fix Dashboard Bugs |In Progress | 2025-01-10
-6 | Conduct Team Meeting |Pending | 2025-01-12
-7 | Update API Documentation |Completed | 2025-01-15
-8 | Test New Features |Pending | 2025-01-18
-9 | Analyze Market Data |In Progress | 2025-01-20
-10 | Optimize SQL Queries |Pending | 2025-01-22
-11 | Clean User Database |Completed | 2025-01-25
-12 | Design New Dashboard |Pending | 2025-01-27
-13 | Review Security Logs |Pending | 2025-01-28
-14 | Check Backup Files |Completed | 2025-01-29
-15 | Send Invoice Reminders |In Progress | 2025-02-01
-16 | Verify Tax Filings |Pending | 2025-02-03
-17 | Train New Employees |Completed | 2025-02-05
-18 | Prepare Presentation |Pending | 2025-02-07
-19 | Update User Permissions |In Progress | 2025-02-10
-20 | Plan Product Launch |Pending | 2025-02-12
+1|Update Trade Details|Pending|2025-01-01
+2|Check Payment Records|In Progress|2025-01-03
+3|Review Client Feedback|Completed|2025-01-05
+4|Prepare Monthly Report|Pending|2025-01-07
+5|Fix Dashboard Bugs|In Progress|2025-01-10
+6|Conduct Team Meeting|Pending|2025-01-12
+7|Update API Documentation|Completed|2025-01-15
+8|Test New Features|Pending|2025-01-18
+9|Analyze Market Data|In Progress|2025-01-20
+10|Optimize SQL Queries|Pending|2025-01-22
+11|Clean User Database|Completed|2025-01-25
+12|Design New Dashboard|Pending|2025-01-27
+13|Review Security Logs|Pending|2025-01-28
+14|Check Backup Files|Completed|2025-01-29
+15|Send Invoice Reminders|In Progress|2025-02-01
+16|Verify Tax Filings|Pending|2025-02-03
+17|Train New Employees|Completed|2025-02-05
+18|Prepare Presentation|Pending|2025-02-07
+19|Update User Permissions|In Progress|2025-02-10
