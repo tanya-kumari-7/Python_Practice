@@ -43,9 +43,13 @@ def delete_task_by_id(task_id):
     input_task_id = str(task_id)
 
     # Step 1: Read all tasks
-    with open("Project_to_do_list.txt", "r") as file:
+    with open("text_book.txt", "r") as file:
         task_details = file.readlines()
         for line in task_details:
-            rows = line.strip().split("|")
+            task_id,task_name,status,date = line.strip().split("|")
+            if task_id == input_task_id:
+                print(line)
+            else:
+                continue
 
 delete_task_by_id(20)
