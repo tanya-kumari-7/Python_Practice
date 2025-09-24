@@ -63,3 +63,11 @@ def delete_task_by_id(task_id):
             print(f"{input_task_id}, Not found in the book")
 
 delete_task_by_id(20)
+
+def update_status_date (updated_status,date):
+    if not updated_status or not date :
+        print("Please enter status which need to be updated and date")
+    else:
+        input_updated_status = updated_status.strip()
+        input_date = date.strip()
+
