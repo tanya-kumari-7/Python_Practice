@@ -48,6 +48,27 @@ def view_all_task():
    
 view_all_task()
 
+def view_task_by_id(id):
+    if not id:
+        print("Please enter your task id")
+    else:
+        case_status = False
+        input_id = str(id).strip()
+        with open("text_book.txt", "r") as file:
+            file_details = file.readlines()
+
+            for line in file_details:
+                task_id,task_name,status,date = line.strip().split("|")
+                if task_id == input_id:
+                    case_status = True
+                    return line.strip()
+                else:
+                    continue
+        if not case_status:
+            print(f"{input_id} : Id not found, please enter vaild id or please add task with this id [If ANY]")
+
+view_task_by_id(19)
+
 
 
 def delete_task_by_id(task_id):
