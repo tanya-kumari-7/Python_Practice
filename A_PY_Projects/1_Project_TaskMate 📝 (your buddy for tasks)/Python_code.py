@@ -70,22 +70,30 @@ def update_status_date_by_id (id,updated_status,date):
     else:
         id
         input_updated_status = updated_status.strip()
-        input_date = date.strip()
-        input_id = id.strip()
+        input_date = str(date).strip()
+        input_id = str(id).strip()
 
         updated_list = []
-        updated_line = []
         case_status= False
         with open("text_book.txt","r") as file:
             file_details = file.readlines()
 
             for line in file_details:
                 task_id,task_name,status,date = line.strip().split("|")
-                if str(task_id) != str(input_id):
-                    updated_list.append(line)
+                if str(task_id) == str(input_id):
+                    case_status = True
+                    new_line =f"{task_id}|{task_name}|{input_updated_status}|{input_date}\n"
+                    updated_list.append(new_line)
+                    print("Details updated")
                 else:
+                    updated_list.append(line)
+            with open("text_book.txt","w") as file:
+                file.writelines(updated_list)
 
-                    
+            if not case_status:
+                print(f"{input_id} id not found in the book, please re-check")
+
+update_status_date_by_id(19,"Completed","2025-09-26")                 
                 
 
                     
