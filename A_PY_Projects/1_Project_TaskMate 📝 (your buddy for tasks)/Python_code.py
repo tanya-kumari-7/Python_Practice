@@ -64,10 +64,32 @@ def delete_task_by_id(task_id):
 
 delete_task_by_id(20)
 
-def update_status_date (updated_status,date):
-    if not updated_status or not date :
+def update_status_date_by_id (id,updated_status,date):
+    if not updated_status or not date or not id:
         print("Please enter status which need to be updated and date")
     else:
+        id
         input_updated_status = updated_status.strip()
         input_date = date.strip()
+        input_id = id.strip()
+
+        updated_list = []
+        updated_line = []
+        case_status= False
+        with open("text_book.txt","r") as file:
+            file_details = file.readlines()
+
+            for line in file_details:
+                task_id,task_name,status,date = line.strip().split("|")
+                if str(task_id) != str(input_id):
+                    updated_list.append(line)
+                else:
+
+                    
+                
+
+                    
+            
+                    
+
 
