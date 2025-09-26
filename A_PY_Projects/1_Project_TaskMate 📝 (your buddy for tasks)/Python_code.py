@@ -38,6 +38,18 @@ add_task("18", "Prepare Presentation", "Pending", "2025-02-07")
 add_task("19", "Update User Permissions", "In Progress", "2025-02-10")
 add_task("20", "Plan Product Launch", "Pending", "2025-02-12")
 
+
+def view_all_task():
+    with open("text_book.txt", "r") as file:
+        file_details = file.readlines()
+
+        for line in file_details:
+            print(line.strip())  # removes \n so it looks clean
+   
+view_all_task()
+
+
+
 def delete_task_by_id(task_id):
     input_task_id = str(task_id)
 
