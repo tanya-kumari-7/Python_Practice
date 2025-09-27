@@ -126,7 +126,11 @@ def update_status_date_by_id (id,updated_status,date):
             if not case_status:
                 print(f"{input_id} id not found in the book, please re-check")
 
-update_status_date_by_id(19,"Completed","2025-09-26")                 
+update_status_date_by_id(19,"Completed","2025-09-26")   
+
+
+def task_summary_by_status():
+    
                 
 
                     
