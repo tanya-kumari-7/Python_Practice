@@ -145,6 +145,23 @@ def task_summary_by_status():
 
 task_summary_by_status()
 
+def month_wise_task_summary():
+    with open("text_book.txt","r") as file:
+        file_details = file.readlines()
+
+        for line in file_details:
+
+            df = pd.read_csv("text_book.txt",
+                             sep="|",
+                             header= None,
+                             names=["task_id","task_name","status","date"])
+            return df
+        
+month_wise_task_summary()
+        
+
+
+
 
                 
 
