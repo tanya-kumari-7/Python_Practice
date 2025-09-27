@@ -155,7 +155,11 @@ def month_wise_task_summary():
                              sep="|",
                              header= None,
                              names=["task_id","task_name","status","date"])
-            return df
+            df["date"] = pd.to_datetime(df["date"])
+            df["month"] = df["date"].dt.month
+            df["month_name"] = df["date"].dt.strftime("%B")
+            month_wise_task_summary_ = df.groupby(["month_name","status"])["task_id"].count()
+            return month_wise_task_summary_
         
 month_wise_task_summary()
         
