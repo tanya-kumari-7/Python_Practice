@@ -4,9 +4,23 @@ Add, delete, update tasks.
 Save tasks in a text file or JSON.
 Learn basics of lists, loops, and file handling.
 """
-# Imports 
+from fastapi import FastAPI
+from typing import Optional
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 import pandas as pd
+import os
+
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+TASK_FILE = "text_book.txt"
 
 #  Create a text file and add tasks 
 
@@ -14,9 +28,14 @@ def add_task(task_id,task_name,status,date):
     if not (task_id and task_name and status and date):
         return "Enter complete task details :task_id,task_name,status,date(format: yyyy-mm-dd)"
     else:
-        with open("text_book.txt","a") as file:
+        with open(TASK_FILE,"a") as file:
             file.write(f"{task_id}|{task_name}|{status}|{date}\n")
             return "Task Added !! :)"
+
+@app.post("/add_task")
+def api_add_task(task_id: str, task_name: str, status: str, date: str):
+    result = add_task(task_id, task_name, status, date)
+    return {"result": result}
         
 # add_task("1", "Update Trade Details", "Pending", "2025-01-01")
 # add_task("2", "Check Payment Records", "In Progress", "2025-01-03")
@@ -41,13 +60,19 @@ def add_task(task_id,task_name,status,date):
 
 
 def view_all_task():
-    with open("text_book.txt", "r") as file:
+    with open(TASK_FILE, "r") as file:
         file_details = file.readlines()
-
         for line in file_details:
             print(line.strip())  
-   
-# view_all_task()
+
+@app.get("/view_all_task")
+def api_view_all_task():
+    if not os.path.exists(TASK_FILE):
+        return {"tasks": []}
+    with open(TASK_FILE, "r") as file:
+        file_details = file.readlines()
+    tasks = [line.strip() for line in file_details]
+    return {"tasks": tasks}
 
 def view_task_by_id(id):
     if not id:
@@ -55,9 +80,8 @@ def view_task_by_id(id):
     else:
         case_status = False
         input_id = str(id).strip()
-        with open("text_book.txt", "r") as file:
+        with open(TASK_FILE, "r") as file:
             file_details = file.readlines()
-
             for line in file_details:
                 task_id,task_name,status,date = line.strip().split("|")
                 if task_id == input_id:
@@ -68,33 +92,67 @@ def view_task_by_id(id):
         if not case_status:
             print(f"{input_id} : Id not found, please enter vaild id or please add task with this id [If ANY]")
 
+@app.get("/view_task_by_id")
+def api_view_task_by_id(id: str):
+    if not id:
+        return {"error": "Please enter your task id"}
+    case_status = False
+    input_id = str(id).strip()
+    if not os.path.exists(TASK_FILE):
+        return {"error": "Task file not found"}
+    with open(TASK_FILE, "r") as file:
+        file_details = file.readlines()
+        for line in file_details:
+            task_id, task_name, status, date = line.strip().split("|")
+            if task_id == input_id:
+                case_status = True
+                return {"task": line.strip()}
+    return {"error": f"{input_id} : Id not found, please enter valid id or please add task with this id [If ANY]"}
+
 # view_task_by_id(19)
 
 
 
 def delete_task_by_id(task_id):
     input_task_id = str(task_id)
-
-    with open("text_book.txt","r") as file:
+    with open(TASK_FILE,"r") as file:
         task_details = file.readlines()
-
         update_task = []
         case_status = False
-
         for line in task_details:
-            task_id,task_name,status,date = line.strip().split("|")
-            if task_id == input_task_id:
+            tid,task_name,status,date = line.strip().split("|")
+            if tid == input_task_id:
                 print(f"Task Found: It will be deleted fro the book",{line})
                 case_status = True
                 continue
             else:
                 update_task.append(line)
-
-        with open("text_book.txt","w") as file:
+        with open(TASK_FILE,"w") as file:
             file.writelines(update_task)
-
         if not case_status:
             print(f"{input_task_id}, Not found in the book")
+
+@app.delete("/delete_task_by_id")
+def api_delete_task_by_id(task_id: str):
+    input_task_id = str(task_id)
+    if not os.path.exists(TASK_FILE):
+        return {"error": "Task file not found"}
+    with open(TASK_FILE, "r") as file:
+        task_details = file.readlines()
+    update_task = []
+    case_status = False
+    for line in task_details:
+        tid, task_name, status, date = line.strip().split("|")
+        if tid == input_task_id:
+            case_status = True
+            continue
+        else:
+            update_task.append(line)
+    with open(TASK_FILE, "w") as file:
+        file.writelines(update_task)
+    if not case_status:
+        return {"error": f"{input_task_id}, Not found in the book"}
+    return {"message": "Task deleted if found"}
 
 # delete_task_by_id(20)
 
@@ -106,12 +164,10 @@ def update_status_date_by_id (id,updated_status,date):
         input_updated_status = updated_status.strip()
         input_date = str(date).strip()
         input_id = str(id).strip()
-
         updated_list = []
         case_status= False
-        with open("text_book.txt","r") as file:
+        with open(TASK_FILE,"r") as file:
             file_details = file.readlines()
-
             for line in file_details:
                 task_id,task_name,status,date = line.strip().split("|")
                 if str(task_id) == str(input_id):
@@ -121,37 +177,67 @@ def update_status_date_by_id (id,updated_status,date):
                     print("Details updated")
                 else:
                     updated_list.append(line)
-            with open("text_book.txt","w") as file:
+            with open(TASK_FILE,"w") as file:
                 file.writelines(updated_list)
-
             if not case_status:
                 print(f"{input_id} id not found in the book, please re-check")
+
+@app.put("/update_status_date_by_id")
+def api_update_status_date_by_id(id: str, updated_status: str, date: str):
+    if not updated_status or not date or not id:
+        return {"error": "Please enter status which need to be updated and date"}
+    input_updated_status = updated_status.strip()
+    input_date = str(date).strip()
+    input_id = str(id).strip()
+    if not os.path.exists(TASK_FILE):
+        return {"error": "Task file not found"}
+    updated_list = []
+    case_status = False
+    with open(TASK_FILE, "r") as file:
+        file_details = file.readlines()
+        for line in file_details:
+            task_id, task_name, status, date = line.strip().split("|")
+            if str(task_id) == str(input_id):
+                case_status = True
+                new_line = f"{task_id}|{task_name}|{input_updated_status}|{input_date}\n"
+                updated_list.append(new_line)
+            else:
+                updated_list.append(line)
+    with open(TASK_FILE, "w") as file:
+        file.writelines(updated_list)
+    if not case_status:
+        return {"error": f"{input_id} id not found in the book, please re-check"}
+    return {"message": "Details updated"}
 
 # update_status_date_by_id(19,"Completed","2025-09-26")   
 
 
 def task_summary_by_status():
-    with open("text_book.txt","r") as file:
+    with open(TASK_FILE,"r") as file:
         file_details = file.readlines()
-
         for line in file_details:
-            # task_id,task_name,status,date 
-            df = pd.read_csv("text_book.txt",
+            df = pd.read_csv(TASK_FILE,
                              sep="|",
                              header= None,
                              names=["task_id","task_name","status","date"])
             task_distribution = df.groupby("status")["task_id"].count()
             return task_distribution
 
+@app.get("/task_summary_by_status")
+def api_task_summary_by_status():
+    if not os.path.exists(TASK_FILE):
+        return {"summary": {}}
+    df = pd.read_csv(TASK_FILE, sep="|", header=None, names=["task_id", "task_name", "status", "date"])
+    task_distribution = df.groupby("status")["task_id"].count().to_dict()
+    return {"summary": task_distribution}
+
 # task_summary_by_status()
 
 def month_wise_task_summary():
-    with open("text_book.txt","r") as file:
+    with open(TASK_FILE,"r") as file:
         file_details = file.readlines()
-
         for line in file_details:
-
-            df = pd.read_csv("text_book.txt",
+            df = pd.read_csv(TASK_FILE,
                              sep="|",
                              header= None,
                              names=["task_id","task_name","status","date"])
@@ -160,8 +246,17 @@ def month_wise_task_summary():
             df["month_name"] = df["date"].dt.strftime("%B")
             month_wise_task_summary_ = df.groupby(["month_name","status"])["task_id"].count()
             return month_wise_task_summary_
-        
-# month_wise_task_summary()
+
+@app.get("/month_wise_task_summary")
+def api_month_wise_task_summary():
+    if not os.path.exists(TASK_FILE):
+        return {"summary": {}}
+    df = pd.read_csv(TASK_FILE, sep="|", header=None, names=["task_id", "task_name", "status", "date"])
+    df["date"] = pd.to_datetime(df["date"])
+    df["month"] = df["date"].dt.month
+    df["month_name"] = df["date"].dt.strftime("%B")
+    month_wise_task_summary_ = df.groupby(["month_name", "status"])["task_id"].count().to_dict()
+    return {"summary": month_wise_task_summary_}
         
 
 
