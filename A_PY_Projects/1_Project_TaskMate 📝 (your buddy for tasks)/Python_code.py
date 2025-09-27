@@ -6,6 +6,7 @@ Learn basics of lists, loops, and file handling.
 """
 # Imports 
 from datetime import datetime
+import pandas as pd
 
 #  Create a text file and add tasks 
 
@@ -130,7 +131,21 @@ update_status_date_by_id(19,"Completed","2025-09-26")
 
 
 def task_summary_by_status():
-    
+    with open("text_book.txt","r") as file:
+        file_details = file.readlines()
+
+        for line in file_details:
+            # task_id,task_name,status,date 
+            df = pd.read_csv("text_book.txt",
+                             sep="|",
+                             header= None,
+                             names=["task_id","task_name","status","date"])
+            task_distribution = df.groupby("status")["task_id"].count()
+            return task_distribution
+
+task_summary_by_status()
+
+
                 
 
                     
