@@ -5,7 +5,9 @@ Helps with random module, conditions, loops.
 """
 
 import random
+from fastapi import FastAPI
 
+app = FastAPI()
 print("Hi there!! :)")
 print("Welcome to a Fun Game: Number Guessing")
 
