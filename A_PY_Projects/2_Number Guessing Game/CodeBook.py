@@ -18,7 +18,9 @@ def guessing_game_fun():
         user_num = int(input("Please guess the number between 1-100: "))
         attempt += 1
 
-        if user_num > game_num:
+        if user_num < 1 or user_num > 100:
+            print("Out of bounds! Please try again.")
+        elif user_num > game_num:
             print(f"Too high! Try again. Attempt: {attempt}")
         elif user_num < game_num:
             print(f"Too low! Try again. Attempt: {attempt}")
