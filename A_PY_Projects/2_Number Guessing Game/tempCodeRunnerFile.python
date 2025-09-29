@@ -1,0 +1,42 @@
+""" Number Guessing Game
+User guesses a number between 1–100.
+Program gives hints (“too high”, “too low”).
+Helps with random module, conditions, loops.
+"""
+
+import random
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+
+app = FastAPI()
+
+game_num = random.randint(1, 100)
+attempt = 0
+check = False
+while not check:
+    user_num = int(input("Please guess the number between 1-100: "))
+    attempt += 1
+    if user_num < 1 or user_num > 100:
+        print("Out of bounds! Please try again.")
+    elif user_num > game_num:
+        print(f"Too high! Try again. Attempt: {attempt}")
+    elif user_num < game_num:
+        print(f"Too low! Try again. Attempt: {attempt}")
+    else:
+        print(f" Congratulations! You guessed it in {attempt} attempts.")
+        check = True
+
+
+
+# Minimal UI endpoint (does not change game logic)
+@app.get("/", response_class=HTMLResponse)
+async def ui():
+    return """
+    <html>
+    <head><title>Number Guessing Game</title></head>
+    <body>
+        <h2>Number Guessing Game (Console)</h2>
+        <p>This game runs in the console. Please run the script and follow the prompts there.</p>
+    </body>
+    </html>
+    """
