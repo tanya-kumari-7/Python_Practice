@@ -1,38 +1,32 @@
-"""
-Expense Tracker (CLI)
-Input expenses (category, amount, date).
-Store them in a CSV file.
-Calculate monthly totals.
-"""
+import pandas as pd
 
-# import pandas as pd
-  
 def add_expenses_func(date: str, amount: float, expense_type: str, expense_budget: float):
     """ 
-    Welcome to Your Expenses Tracker !!!
-    
-    Please Follow the Filed Format
-    date: in format yyyy-mm-dd
-    amount: number (float or int)
-    expense_type: string (like Food, Rent, Travel)
-    expense_budget for Month: number (float or int)
+    Expense Tracker with Monthly Summary
     """
     if not date or not amount or not expense_type or not expense_budget:
-        return {"Please Enter Completed Details As All Fileds Are Mandatory"}
-    else:
-        with open("expenses_book.txt",'a') as file:
-            file.write(f"{date}|{amount}|{expense_type}|{expense_budget}\n")
-            df = pd.read_csv("expenses_book.txt",
-                             sep="|",
-                             header=None,
-                             names=["Date", "Amount", "Type", "Budget"])
-            df["Date"] = pd.to_datetime(df["Date"],format="%Y-%m-%d")
-            df["Date_month"] = pd.to_datetime(df["Date"],format="%m-%y").dt.strftime("%b-%y")
-            df["Monthly_expense_till_date"] = df.groupby("Date_month")["Amount"].transform("sum")
-            df["Remaning_amount"] = df["Budget"]-df["Monthly_expense_till_date"]
-            df.to_csv("expenses_book.csv", index=False)
-            return df
-  
+        return {"Error": "Please Enter Completed Details As All Fields Are Mandatory"}
+    with open("expenses_book.txt", 'a') as file:
+        file.write(f"{date}|{amount}|{expense_type}|{expense_budget}\n")
+    df = pd.read_csv(
+        "expenses_book.txt", 
+        sep="|", 
+        names=["Date", "Amount", "Expense Type", "Expense Budget"]
+    )
+    df["Date"] = pd.to_datetime(df["Date"], format="%Y-%m-%d")
+    df["Month"] = df["Date"].dt.strftime("%B-%Y")
+    df["Total_exp"] = df.groupby("Month")["Amount"].transform("sum")
+    df["Remaining_budget"] = df["Expense Budget"] - df["Total_exp"]
+    df.to_csv("expenses_book.txt", sep="|", index=False, header=False)
+    # return df
+    to_be_retuned = f"""
+    Expense Added Successfully!
+    Here is current status of your budget:
+    Total Expense for {df.iloc[-1]['Month']}: {df.iloc[-1]['Total_exp']}
+    Remaining Budget for {df.iloc[-1]['Month']}: {df.iloc[-1]['Remaining_budget']}
+    """
+    return to_be_retuned
+
 # add_expenses_func("2025-09-01", 1200, "Food", 10000)
 # add_expenses_func("2025-09-02", 2500, "Rent", 10000)
 # add_expenses_func("2025-09-03", 800, "Travel", 10000)
@@ -52,5 +46,8 @@ def add_expenses_func(date: str, amount: float, expense_type: str, expense_budge
 # add_expenses_func("2025-10-02", 1200, "Food", 12000)
 # add_expenses_func("2025-10-03", 1500, "Travel", 12000)
 # add_expenses_func("2025-10-04", 800, "Shopping", 12000)
-# add_expenses_func("2025-10-15", 5000, "Snacks", 12000)
+add_expenses_func("2025-12-20", 500, "Snacks", 100000)
+
+
+nnnnnnnnnnn
 
