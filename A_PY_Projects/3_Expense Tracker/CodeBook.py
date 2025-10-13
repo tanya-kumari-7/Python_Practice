@@ -49,5 +49,3 @@ def add_expenses_func(date: str, amount: float, expense_type: str, expense_budge
 add_expenses_func("2025-12-20", 500, "Snacks", 100000)
 
 
-nnnnnnnnnnn
-
