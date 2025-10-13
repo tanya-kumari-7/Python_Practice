@@ -1,33 +1,59 @@
 import pandas as pd
+import os
 
 def add_expenses_func(date: str, amount: float, expense_type: str, expense_budget: float):
     """ 
     Expense Tracker with Monthly Summary
+    - Appends new expense to expenses_book.txt
+    - Writes full data including calculated fields to expenses_book_new.txt
+    - Returns status message
     """
-    if not date or not amount or not expense_type or not expense_budget:
-        return {"Error": "Please Enter Completed Details As All Fields Are Mandatory"}
-    with open("expenses_book.txt", 'a') as file:
+    # Validation
+    if not date or expense_type.strip() == "" or amount is None or expense_budget is None:
+        return {"Error": "Please enter complete details. All fields are mandatory."}
+
+    file_path = "expenses_book.txt"
+    new_file_path = "expenses_book_new.txt"
+
+    # Ensure raw file exists
+    if not os.path.exists(file_path):
+        with open(file_path, "w") as f:
+            f.write("")
+
+    # Append new raw record
+    with open(file_path, 'a') as file:
         file.write(f"{date}|{amount}|{expense_type}|{expense_budget}\n")
+
+    # Load all data
     df = pd.read_csv(
-        "expenses_book.txt", 
-        sep="|", 
-        names=["Date", "Amount", "Expense Type", "Expense Budget"]
+        file_path,
+        sep="|",
+        names=["Date", "Amount", "Expense Type", "Expense Budget"],
+        parse_dates=["Date"]
     )
-    df["Date"] = pd.to_datetime(df["Date"], format="%Y-%m-%d")
+
+    # Add calculated columns
     df["Month"] = df["Date"].dt.strftime("%B-%Y")
     df["Total_exp"] = df.groupby("Month")["Amount"].transform("sum")
     df["Remaining_budget"] = df["Expense Budget"] - df["Total_exp"]
-    df.to_csv("expenses_book.txt", sep="|", index=False, header=False)
-    # return df
-    to_be_retuned = f"""
-    Expense Added Successfully!
-    Here is current status of your budget:
-    Total Expense for {df.iloc[-1]['Month']}: {df.iloc[-1]['Total_exp']}
-    Remaining Budget for {df.iloc[-1]['Month']}: {df.iloc[-1]['Remaining_budget']}
-    """
-    return to_be_retuned
 
-# add_expenses_func("2025-09-01", 1200, "Food", 10000)
+    # Save full dataset with calculated fields to new file
+    df.to_csv(new_file_path, sep="|", index=False, header=True)
+
+    # Latest entry for return message
+    last = df.iloc[-1]
+    to_be_returned = f"""
+    Expense Added Successfully!
+    Month: {last['Month']}
+    Total Expense: {last['Total_exp']}
+    Remaining Budget: {last['Remaining_budget']}
+
+    Full summary saved to: {new_file_path}
+    """
+    return to_be_returned
+
+
+add_expenses_func("2025-09-01", 1200, "Food", 10000)
 # add_expenses_func("2025-09-02", 2500, "Rent", 10000)
 # add_expenses_func("2025-09-03", 800, "Travel", 10000)
 # add_expenses_func("2025-09-04", 600, "Entertainment", 10000)
