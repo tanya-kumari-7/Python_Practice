@@ -8,4 +8,19 @@ Lists and tuples are both ordered collections that can store heterogeneous data 
 Use case:
 Use a tuple when data should remain constant, e.g., configuration settings or historical records.
 Use a list when data is expected to change, e.g., a list of students where new admissions can happen.
+
+
+
+Question 2
+What is the difference between:
+a = [1, 2, 3]
+b = a
+c = a.copy()
+
+What happens if we do a.append(4)?
+What will be the values of a, b, and c?
+Why?
+    a.append(4) : Modifies the original list in place
+    b = a → reference copy (same memory)
+    c = a.copy() → shallow copy (new memory)
 '''
